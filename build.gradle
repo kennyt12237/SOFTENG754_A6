@@ -2,38 +2,45 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'nz.ac.auckland.se754'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
-    testImplementation("org.mockito:mockito-core:3.9.0")
-    testImplementation(group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.9.0')
-    testImplementation 'io.cucumber:cucumber-java:6.8.1'
-    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
-}
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
     }
 }
+
 test {
     useJUnitPlatform()
 }
 
+dependencies {
+    testImplementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+    testImplementation "org.mockito:mockito-core:3.9.0"
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.9.0'
+    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
+}
+
 task cucumber() {
-    dependsOn assemble, testClasses doLast {
+    dependsOn assemble, testClasses
+    doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty',
-                 '--glue', 'nz.ac.auckland.se754.stepdefinitions', // package of the step definitions (java files)
-                 'src/test/resources/features'] // where the features file are located (feature files)
+                    '--plugin', 'de.monochromata.cucumber.report.PrettyReports:target/cucumber-report',
+                    '--glue', 'nz.ac.auckland.se754.democucumber', // package of the step definitions (java files)
+                    'src/test/resources/features'] // where the features file are located (feature files)
         }
     }
 }
