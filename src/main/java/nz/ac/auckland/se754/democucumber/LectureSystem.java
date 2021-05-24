@@ -26,13 +26,19 @@ public class LectureSystem {
         }
     }
 
-    public boolean login(String upi, String password) throws NoSuchElementException {
+    public boolean login(String upi, String password) {
 
         if (password.isEmpty() || upi.isEmpty()) {
             return false;
         }
 
-        return lectureSystemDatabase.checkRegisteredAccount(upi, password);
+        try {
+            lectureSystemDatabase.checkRegisteredAccount(upi, password);
+            return true;
+        } catch (NoSuchElementException error) {
+            System.err.println(error.getMessage());
+            return false;
+        }
     }
 
     public boolean enrolledInCourse(String courseId, String upi) {
