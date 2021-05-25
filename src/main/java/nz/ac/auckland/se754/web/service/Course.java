@@ -1,4 +1,4 @@
-package nz.ac.auckland.se754.democucumber;
+package nz.ac.auckland.se754.web.service;
 
 public class Course {
     public String getCourseName() {

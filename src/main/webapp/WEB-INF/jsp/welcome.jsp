@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<label id="message">Welcome ${name}! <a href="/list-courses">Click here</a> to manage your courses.</label>
+<label id="message">Welcome ${name}! </label>
 
 </body>
 

@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class UserAuthenticationPage {
 
-    public LoginPage(WebDriver driver) {
+    public UserAuthenticationPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -18,7 +18,7 @@ public class LoginPage {
     @FindBy(how=How.ID, using="password")
     private WebElement password;
 
-    @FindBy(how=How.ID, using="submitbtn")
+    @FindBy(how=How.ID, using="loginbtn")
     private WebElement submitButton;
 
     @FindBy(how=How.ID, using="message")
@@ -39,7 +39,6 @@ public class LoginPage {
     public String getMessage(){
         return this.message.getText();
     }
-
 
 }
 
