@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserAuthenticationStepDefinitions {
 
-    LectureSystem lectureSystem;
-    String username;
+    private LectureSystem lectureSystem;
+    private String username;
 
     private WebDriver driver;
     private UserAuthenticationPage userAuthenticationPage;

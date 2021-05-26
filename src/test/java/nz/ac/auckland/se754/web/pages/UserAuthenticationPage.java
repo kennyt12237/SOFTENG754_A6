@@ -12,14 +12,14 @@ public class UserAuthenticationPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how=How.ID, using ="name")
+    @FindBy(how=How.ID, using ="username")
     private WebElement userName;
 
     @FindBy(how=How.ID, using="password")
     private WebElement password;
 
     @FindBy(how=How.ID, using="loginbtn")
-    private WebElement submitButton;
+    private WebElement loginButton;
 
     @FindBy(how=How.ID, using="message")
     private WebElement message;
@@ -33,7 +33,7 @@ public class UserAuthenticationPage {
     }
 
     public void clickLogin(){
-        this.submitButton.click();
+        this.loginButton.click();
     }
 
     public String getMessage(){

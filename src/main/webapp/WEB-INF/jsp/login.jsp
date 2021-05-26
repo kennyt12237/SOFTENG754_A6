@@ -1,15 +1,15 @@
 <html>
 
 <head>
-    <title>SE754 SpringBoot + JSP DEMO</title>
+    <title>Online Lecture System</title>
 </head>
 
 <body>
     <font color="red">${errorMessage}</font>
-    <h1>Online classroom</h1>
-    <h2>Insert username and password</h2>
+    <h1>Online University of Auckland Lecture System</h1>
+    <p>Insert username and password</p>
     <form method="post">
-        Name : <input type="text" name="name" id="name" />
+        Username/Email : <input type="text" name="username" id="username" />
         Password : <input type="password" name="password" id="password"/>
         <input type="submit" id="loginbtn" value="Login" />
     </form>
