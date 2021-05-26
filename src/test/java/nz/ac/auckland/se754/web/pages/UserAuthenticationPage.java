@@ -24,6 +24,12 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="message")
     private WebElement message;
 
+    @FindBy(how=How.ID, using="ssobtn")
+    private WebElement ssoButton;
+
+    @FindBy(how=How.ID, using="sso-welcome-text")
+    private WebElement ssoWelcomeText;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -38,6 +44,14 @@ public class UserAuthenticationPage {
 
     public String getMessage(){
         return this.message.getText();
+    }
+
+    public void clickSso() {
+        this.ssoButton.click();
+    }
+
+    public String getWelcomeText() {
+        return this.ssoWelcomeText.getText();
     }
 
 }

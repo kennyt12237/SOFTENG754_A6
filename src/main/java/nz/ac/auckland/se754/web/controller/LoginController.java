@@ -23,7 +23,7 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String showWelcomePage(ModelMap model, @RequestParam String username, @RequestParam String password){
+    public String signInWithCredentials(ModelMap model, @RequestParam String username, @RequestParam String password){
 
         boolean isValidUser = service.validateUser(username, password);
 
@@ -36,6 +36,13 @@ public class LoginController {
         model.put("password", password);
 
         return "welcome";
+    }
+
+    @RequestMapping(value="/sso", method = RequestMethod.POST)
+    public String signInUsingSso(ModelMap model){
+
+        model.put("name", "SSO User");
+        return "sso";
     }
 
 }

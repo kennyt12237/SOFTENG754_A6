@@ -38,7 +38,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -78,5 +78,16 @@ public class UserAuthenticationStepDefinitions {
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
         assertTrue(userAuthenticationPage.getMessage().contains("Welcome " + username));
+    }
+
+    @When("I press the Sign in with SSO button")
+    public void i_press_the_sign_in_with_sso_button() {
+        userAuthenticationPage.clickSso();
+    }
+
+    @Then("I should see the SSO login page")
+    public void i_should_see_the_sso_login_page() {
+        assertTrue(userAuthenticationPage.getMessage().contains("Welcome SSO User!"));
+        assertTrue(userAuthenticationPage.getWelcomeText().contains("Thank you for signing in through SSO"));
     }
 }

@@ -13,7 +13,9 @@
         Password : <input type="password" name="password" id="password"/>
         <input type="submit" id="loginbtn" value="Login" />
     </form>
-    <button>Sign in with SSO</button>
+    <form action="/sso" method="post">
+        <button id="ssobtn">Sign in with SSO</button>
+    </form>
 
 </body>
 
