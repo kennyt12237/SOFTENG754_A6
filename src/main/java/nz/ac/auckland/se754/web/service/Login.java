@@ -9,8 +9,8 @@ import java.util.Arrays;
 @Service
 public class Login {
 
-    ArrayList<String> usernames = new ArrayList<>(Arrays.asList("cpat430", "akha379"));
-    ArrayList<String> passwords = new ArrayList<>(Arrays.asList("myPassword1", "myPassword1"));
+    ArrayList<String> usernames = new ArrayList<>(Arrays.asList("cpat430", "akha379", "cpat430@aucklanduni.ac.nz"));
+    ArrayList<String> passwords = new ArrayList<>(Arrays.asList("myPassword1", "myPassword1", "myPassword1"));
     ArrayList<Course> courses = new ArrayList<>();
     LectureSystem lectureSystem = new LectureSystem(usernames, passwords, courses);
 
