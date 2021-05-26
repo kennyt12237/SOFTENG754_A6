@@ -14,3 +14,4 @@ Feature: UserAuthentication
       | username   | password      |
       | "cpat430"  | "myPassword1" |
       | "akha379"  | "myPassword1" |
+      | "cpat430@aucklanduni.ac.nz" | "myPassword1" |
