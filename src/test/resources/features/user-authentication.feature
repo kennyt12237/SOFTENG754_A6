@@ -16,9 +16,16 @@ Feature: UserAuthentication
       | "akha379"  | "myPassword1" |
       | "cpat430@aucklanduni.ac.nz" | "myPassword1" |
 
-  Scenario: Unsuccessfully logging into the lecture system.
-    Given I have entered username "sche779" into the username field
-    And I have entered password "myPassword1" into the password field
+  Scenario Outline: Unsuccessfully logging into the lecture system.
+    Given I have entered username <username> into the username field
+    And I have entered password <password> into the password field
     When I press login button
     Then I should not see the welcome page
     And I should see an error message
+
+    Examples:
+      | username   | password      |
+      | "sche779"  | "myPassword1" |
+      | ""         | "myPassword1" |
+      | "cpat430"  | ""            |
+      | ""         | ""            |
