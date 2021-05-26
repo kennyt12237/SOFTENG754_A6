@@ -30,6 +30,9 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="sso-welcome-text")
     private WebElement ssoWelcomeText;
 
+    @FindBy(how=How.ID, using="error-message")
+    private WebElement errorMessage;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -52,6 +55,10 @@ public class UserAuthenticationPage {
 
     public String getWelcomeText() {
         return this.ssoWelcomeText.getText();
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage.getText();
     }
 
 }

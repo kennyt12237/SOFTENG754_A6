@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <font color="red">${errorMessage}</font>
+    <p style="color: #ff0000" id="error-message">${errorMessage}</p>
     <h1>Online University of Auckland Lecture System</h1>
     <p>Insert username and password</p>
     <form method="post">

@@ -13,9 +13,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserAuthenticationStepDefinitions {
 
@@ -38,7 +39,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -58,6 +59,8 @@ public class UserAuthenticationStepDefinitions {
     public void i_visit(String string) {
         driver.get("http://localhost:8080" + string);
     }
+
+    /* Specific to scenario Successfully logging into the lecture system. */
 
     @Given("I have entered username {string} into the username field")
     public void i_have_entered_username_into_the_username_field(String username) {
@@ -80,6 +83,8 @@ public class UserAuthenticationStepDefinitions {
         assertTrue(userAuthenticationPage.getMessage().contains("Welcome " + username));
     }
 
+    /* Specific to scenario Logging into the lecture system using SSO. */
+
     @When("I press the Sign in with SSO button")
     public void i_press_the_sign_in_with_sso_button() {
         userAuthenticationPage.clickSso();
@@ -90,4 +95,17 @@ public class UserAuthenticationStepDefinitions {
         assertTrue(userAuthenticationPage.getMessage().contains("Welcome SSO User!"));
         assertTrue(userAuthenticationPage.getWelcomeText().contains("Thank you for signing in through SSO"));
     }
+
+    /* Specific to scenario Unsuccessfully logging into the lecture system. */
+    @Then("I should not see the welcome page")
+    public void i_should_not_see_the_welcome_page() {
+        assertEquals(driver.getCurrentUrl(), "http://localhost:8080/login");
+    }
+
+    @Then("I should see an error message")
+    public void i_should_see_an_error_message() {
+
+        assertTrue(userAuthenticationPage.getErrorMessage().contains("Invalid Credentials"));
+    }
+
 }
