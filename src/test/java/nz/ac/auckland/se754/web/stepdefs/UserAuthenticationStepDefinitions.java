@@ -42,7 +42,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -137,4 +137,8 @@ public class UserAuthenticationStepDefinitions {
     public void i_should_be_redirected_to_the_lecture() {
         assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG754");
     }
+
+    /* Unsuccessfully joining a lecture */
+
+
 }
