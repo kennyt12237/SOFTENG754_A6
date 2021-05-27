@@ -42,6 +42,9 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="lecture-welcome")
     private WebElement lectureWelcome;
 
+    @FindBy(how=How.ID, using="softeng-754")
+    private WebElement softeng754;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -82,5 +85,8 @@ public class UserAuthenticationPage {
         return this.lectureWelcome.getText();
     }
 
+    public String getLectureName() {
+        return this.softeng754.getText();
+    }
 }
 

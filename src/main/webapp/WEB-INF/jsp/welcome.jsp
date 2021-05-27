@@ -9,7 +9,7 @@
 
 <div id="lectures">
     <div id="SOFTENG754">
-        <label>SOFTENG 754</label>
+        <label id="softeng-754">SOFTENG 754</label>
         <form action="/lecture" method="get">
             <button id="join-lecture-button">Join Lecture!</button>
         </form>

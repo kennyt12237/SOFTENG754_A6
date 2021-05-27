@@ -42,7 +42,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(500);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -152,8 +152,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should not be redirected to the lecture")
     public void i_should_not_be_redirected_to_the_lecture() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(userAuthenticationPage.getLectureName(), "SOFTENG 754");
     }
 
 }
