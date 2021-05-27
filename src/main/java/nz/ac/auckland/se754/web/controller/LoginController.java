@@ -45,9 +45,14 @@ public class LoginController {
         return "sso";
     }
 
-    @RequestMapping(value="/sso", method = RequestMethod.GET)
-    public String redirectToWelcome(ModelMap model) {
+    @RequestMapping(value="/welcome", method = RequestMethod.GET)
+    public String openWelcomePage(ModelMap model) {
         return "welcome";
     }
 
+    @RequestMapping(value="/lecture", method = RequestMethod.GET)
+    public String joinLecture(ModelMap model) {
+
+        return "lecture";
+    }
 }

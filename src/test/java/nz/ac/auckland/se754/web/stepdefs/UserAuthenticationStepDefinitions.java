@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -26,6 +27,8 @@ public class UserAuthenticationStepDefinitions {
     private WebDriver driver;
     private UserAuthenticationPage userAuthenticationPage;
 
+    private boolean authenticated, enrolled;
+
     @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
@@ -39,7 +42,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(0);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -111,5 +114,27 @@ public class UserAuthenticationStepDefinitions {
     public void i_can_redirect_to_the_welcome_page() {
         userAuthenticationPage.clickRedirectButton();
         assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
+    }
+
+    /* User story 104 */
+
+    @Given("I am authenticated")
+    public void i_am_authenticated() {
+        this.authenticated = true;
+    }
+
+    @Given("I am enrolled in the course")
+    public void i_am_enrolled_in_the_course() {
+        this.enrolled = true;
+    }
+
+    @When("I press the Join Lecture button")
+    public void i_press_the_join_lecture_button() {
+        userAuthenticationPage.clickJoinLectureButton();
+    }
+
+    @Then("I should be redirected to the lecture")
+    public void i_should_be_redirected_to_the_lecture() {
+        assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG754");
     }
 }
