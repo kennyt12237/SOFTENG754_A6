@@ -33,6 +33,9 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="error-message")
     private WebElement errorMessage;
 
+    @FindBy(how=How.ID, using="redirect-button")
+    private WebElement redirectButton;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -59,6 +62,10 @@ public class UserAuthenticationPage {
 
     public String getErrorMessage() {
         return this.errorMessage.getText();
+    }
+
+    public void clickRedirectButton() {
+        this.redirectButton.click();
     }
 
 }

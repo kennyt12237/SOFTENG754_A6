@@ -45,4 +45,9 @@ public class LoginController {
         return "sso";
     }
 
+    @RequestMapping(value="/sso", method = RequestMethod.GET)
+    public String redirectToWelcome(ModelMap model) {
+        return "welcome";
+    }
+
 }

@@ -39,7 +39,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(500);
+            Thread.sleep(0);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -73,7 +73,7 @@ public class UserAuthenticationStepDefinitions {
         userAuthenticationPage.insertPassword(password);
     }
 
-    @When("I press login button")
+    @When("I press the login button")
     public void i_press_login_button() {
         userAuthenticationPage.clickLogin();
     }
@@ -104,8 +104,12 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see an error message")
     public void i_should_see_an_error_message() {
-
-        assertTrue(userAuthenticationPage.getErrorMessage().contains("Invalid Credentials"));
+        assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
     }
 
+    @Then("I can redirect to the welcome page")
+    public void i_can_redirect_to_the_welcome_page() {
+        userAuthenticationPage.clickRedirectButton();
+        assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
+    }
 }
