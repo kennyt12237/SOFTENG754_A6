@@ -36,6 +36,12 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="redirect-button")
     private WebElement redirectButton;
 
+    @FindBy(how=How.ID, using="join-lecture-button")
+    private WebElement joinLectureButton;
+
+    @FindBy(how=How.ID, using="lecture-welcome")
+    private WebElement lectureWelcome;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -66,6 +72,14 @@ public class UserAuthenticationPage {
 
     public void clickRedirectButton() {
         this.redirectButton.click();
+    }
+
+    public void clickJoinLectureButton() {
+        this.joinLectureButton.click();
+    }
+
+    public String getLectureWelcomeText() {
+        return this.lectureWelcome.getText();
     }
 
 }

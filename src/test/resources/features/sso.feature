@@ -1,3 +1,4 @@
+@sso
 Feature: SSO
 
   Background: I have enrolled a couple students

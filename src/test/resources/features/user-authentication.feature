@@ -1,3 +1,4 @@
+@user-authentication
 Feature: UserAuthentication
 
   Background: I have enrolled a couple students

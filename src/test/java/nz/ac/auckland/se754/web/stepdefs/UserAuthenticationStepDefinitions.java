@@ -80,7 +80,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
-        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username);
+        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username + "!");
     }
 
     /* Specific to scenario Logging into the lecture system using SSO. */
