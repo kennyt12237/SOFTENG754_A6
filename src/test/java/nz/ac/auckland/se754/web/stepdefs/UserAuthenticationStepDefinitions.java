@@ -140,5 +140,20 @@ public class UserAuthenticationStepDefinitions {
 
     /* Unsuccessfully joining a lecture */
 
+    @Given("My authentication status is {string}")
+    public void my_authentication_status_is(String string) {
+        this.authenticated = Boolean.valueOf(string);
+    }
+
+    @Given("My enrolment status is {string}")
+    public void my_enrolment_status_is(String string) {
+        this.enrolled = Boolean.valueOf(string);
+    }
+
+    @Then("I should not be redirected to the lecture")
+    public void i_should_not_be_redirected_to_the_lecture() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 }
