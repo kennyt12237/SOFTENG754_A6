@@ -80,7 +80,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
-        assertTrue(userAuthenticationPage.getMessage().contains("Welcome " + username));
+        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username);
     }
 
     /* Specific to scenario Logging into the lecture system using SSO. */
@@ -92,8 +92,8 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see the SSO login page")
     public void i_should_see_the_sso_login_page() {
-        assertTrue(userAuthenticationPage.getMessage().contains("Welcome SSO User!"));
-        assertTrue(userAuthenticationPage.getWelcomeText().contains("Thank you for signing in through SSO"));
+        assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
+        assertEquals(userAuthenticationPage.getWelcomeText(), "Thank you for signing in through SSO");
     }
 
     /* Specific to scenario Unsuccessfully logging into the lecture system. */
