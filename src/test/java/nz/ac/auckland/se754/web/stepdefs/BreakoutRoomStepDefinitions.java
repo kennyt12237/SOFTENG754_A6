@@ -51,17 +51,18 @@ public class BreakoutRoomStepDefinitions {
         throw new io.cucumber.java.PendingException();
     }
 
-    @When("I press the AddBreakoutRoom button")
-    public void i_press_the_add_breakout_room_button() {
+    @When("I press the AddBreakoutRoom button {int} times")
+    public void i_press_the_add_breakout_room_button_times(Integer int1) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
 
-    @Then("I should see a new breakout room created")
-    public void i_should_see_a_new_breakout_room_created() {
+    @Then("I should see {int} breakout rooms created")
+    public void i_should_see_breakout_rooms_created(Integer int1) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
 
 
 }
