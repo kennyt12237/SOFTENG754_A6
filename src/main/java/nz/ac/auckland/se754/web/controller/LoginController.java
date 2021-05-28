@@ -23,19 +23,45 @@ public class LoginController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password){
+    public String signInWithCredentials(ModelMap model, @RequestParam String username, @RequestParam String password){
 
-        boolean isValidUser = service.validateUser(name, password);
+        boolean isValidUser = service.validateUser(username, password);
 
         if (!isValidUser) {
             model.put("errorMessage", "Invalid Credentials");
             return "login";
         }
 
-        model.put("name", name);
+        model.put("name", username);
         model.put("password", password);
 
         return "welcome";
     }
 
+    @RequestMapping(value="/sso", method = RequestMethod.POST)
+    public String signInUsingSso(ModelMap model){
+
+        model.put("name", "SSO User");
+        return "sso";
+    }
+
+    @RequestMapping(value="/welcome", method = RequestMethod.GET)
+    public String openWelcomePage(ModelMap model) {
+        return "welcome";
+    }
+
+    @RequestMapping(value="/lecture", method = RequestMethod.POST)
+    public String joinLecture(ModelMap model, @RequestParam(required = false) Boolean authenticated, @RequestParam(required = false) Boolean enrolled) {
+
+        boolean isAuthenticated = authenticated == null ? false : authenticated;
+        boolean isEnrolled = enrolled == null ? false : enrolled;
+
+        System.out.println(isAuthenticated + " " + isEnrolled);
+        if (isAuthenticated && isEnrolled) {
+            return "lecture";
+        }
+
+        model.put("errorMessage", "Invalid Credentials");
+        return "welcome";
+    }
 }
