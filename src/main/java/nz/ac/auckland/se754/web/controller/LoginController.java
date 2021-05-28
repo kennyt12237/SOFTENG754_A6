@@ -50,9 +50,18 @@ public class LoginController {
         return "welcome";
     }
 
-    @RequestMapping(value="/lecture", method = RequestMethod.GET)
-    public String joinLecture(ModelMap model) {
+    @RequestMapping(value="/lecture", method = RequestMethod.POST)
+    public String joinLecture(ModelMap model, @RequestParam(required = false) Boolean authenticated, @RequestParam(required = false) Boolean enrolled) {
 
-        return "lecture";
+        boolean isAuthenticated = authenticated == null ? false : authenticated;
+        boolean isEnrolled = enrolled == null ? false : enrolled;
+
+        System.out.println(isAuthenticated + " " + isEnrolled);
+        if (isAuthenticated && isEnrolled) {
+            return "lecture";
+        }
+
+        model.put("errorMessage", "Invalid Credentials");
+        return "welcome";
     }
 }

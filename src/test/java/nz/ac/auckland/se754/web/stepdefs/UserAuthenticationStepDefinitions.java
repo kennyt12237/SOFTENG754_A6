@@ -27,8 +27,6 @@ public class UserAuthenticationStepDefinitions {
     private WebDriver driver;
     private UserAuthenticationPage userAuthenticationPage;
 
-    private boolean authenticated, enrolled;
-
     @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
@@ -120,12 +118,12 @@ public class UserAuthenticationStepDefinitions {
 
     @Given("I am authenticated")
     public void i_am_authenticated() {
-        this.authenticated = true;
+        userAuthenticationPage.becomeAuthenticated();
     }
 
     @Given("I am enrolled in the course")
     public void i_am_enrolled_in_the_course() {
-        this.enrolled = true;
+        userAuthenticationPage.becomeEnrolled();
     }
 
     @When("I press the Join Lecture button")
@@ -135,23 +133,32 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should be redirected to the lecture")
     public void i_should_be_redirected_to_the_lecture() {
-        assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG754");
+        assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG 754");
     }
 
     /* Unsuccessfully joining a lecture */
 
     @Given("My authentication status is {string}")
     public void my_authentication_status_is(String string) {
-        this.authenticated = Boolean.valueOf(string);
+        boolean authenticated = Boolean.valueOf(string);
+
+        if (authenticated) {
+            this.userAuthenticationPage.becomeAuthenticated();
+        }
     }
 
     @Given("My enrolment status is {string}")
     public void my_enrolment_status_is(String string) {
-        this.enrolled = Boolean.valueOf(string);
+        boolean enrolled = Boolean.valueOf(string);
+
+        if (enrolled) {
+            this.userAuthenticationPage.becomeEnrolled();
+        }
     }
 
     @Then("I should not be redirected to the lecture")
     public void i_should_not_be_redirected_to_the_lecture() {
+//        assertEquals(userAuthenticationPage.)
         assertEquals(userAuthenticationPage.getLectureName(), "SOFTENG 754");
     }
 

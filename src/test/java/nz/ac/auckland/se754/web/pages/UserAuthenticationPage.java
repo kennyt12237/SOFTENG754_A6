@@ -45,6 +45,12 @@ public class UserAuthenticationPage {
     @FindBy(how=How.ID, using="softeng-754")
     private WebElement softeng754;
 
+    @FindBy(how=How.ID, using="authenticated")
+    private WebElement authenticated;
+
+    @FindBy(how=How.ID, using="enrolled")
+    private WebElement enrolled;
+
     public void insertUserName(String userName){
         this.userName.sendKeys(userName);
     }
@@ -87,6 +93,14 @@ public class UserAuthenticationPage {
 
     public String getLectureName() {
         return this.softeng754.getText();
+    }
+
+    public void becomeAuthenticated() {
+        this.authenticated.click();
+    }
+
+    public void becomeEnrolled() {
+        this.enrolled.click();
     }
 }
 
