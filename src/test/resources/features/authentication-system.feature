@@ -1,5 +1,5 @@
 @authentication-system
-Feature: Authentication System
+Feature: Authentication System for joining lectures
 
   Scenario: Successfully joining a lecture
     Given I visit "/welcome"
