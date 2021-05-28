@@ -1,11 +1,14 @@
 @card-game
 Feature: CardGame
 
-  Scenario: Successfully entering the game
-    Given I visit "/BreakoutRoom"
-    And I am in the correct group
-    When I press the join CardGame button
-    Then I should be redirected to the Card Game.
+  Background: I have entered the Card Game
+    Given I visit "/CardGame"
+
+  Scenario: Starting a game with 10 other players
+    Given there are 10 other students in the CardGame with me
+    When I press the start-game button
+    Then I should see a hand of 7 cards
+
 
 
 
