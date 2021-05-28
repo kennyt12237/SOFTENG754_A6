@@ -20,6 +20,9 @@ public class Player {
         this.hand.add(new Card(2,1));
         this.hand.add(new Card(2,2));
         this.hand.add(new Card(0,2));
+        this.hand.add(new Card(3,4));
+        this.hand.add(new Card(3,11));
+
         return this.hand;
     }
 

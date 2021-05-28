@@ -1,9 +1,11 @@
 package nz.ac.auckland.se754.web.service.CardGame;
 import nz.ac.auckland.se754.web.service.User;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CardGame {
     public Deck deck;
     private List<Player> players = new ArrayList<Player>();

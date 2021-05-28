@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import nz.ac.auckland.se754.web.pages.CardGamePage;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
 import org.openqa.selenium.WebDriver;
@@ -56,6 +57,10 @@ public class CardGameStepDefinitions {
     @When("I press the start game button")
     public void i_have_pressed_start_game_button(){
         cardGamePage.clickStartGameButton();
+    }
+    @Then("I should see that the game has started")
+    public void i_should_see_that_the_game_has_started(){
+        assertTrue(cardGamePage.getGameStarted());
     }
 
     @Then("I should see my hand of 7 cards")
