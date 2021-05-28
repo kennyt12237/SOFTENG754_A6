@@ -45,9 +45,23 @@ public class LoginController {
         return "sso";
     }
 
-    @RequestMapping(value="/sso", method = RequestMethod.GET)
-    public String redirectToWelcome(ModelMap model) {
+    @RequestMapping(value="/welcome", method = RequestMethod.GET)
+    public String openWelcomePage(ModelMap model) {
         return "welcome";
     }
 
+    @RequestMapping(value="/lecture", method = RequestMethod.POST)
+    public String joinLecture(ModelMap model, @RequestParam(required = false) Boolean authenticated, @RequestParam(required = false) Boolean enrolled) {
+
+        boolean isAuthenticated = authenticated == null ? false : authenticated;
+        boolean isEnrolled = enrolled == null ? false : enrolled;
+
+        System.out.println(isAuthenticated + " " + isEnrolled);
+        if (isAuthenticated && isEnrolled) {
+            return "lecture";
+        }
+
+        model.put("errorMessage", "Invalid Credentials");
+        return "welcome";
+    }
 }

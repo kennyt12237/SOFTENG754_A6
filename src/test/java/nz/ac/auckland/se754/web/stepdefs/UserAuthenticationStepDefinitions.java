@@ -13,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +38,7 @@ public class UserAuthenticationStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(0);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -80,7 +79,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
-        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username);
+        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username + "!");
     }
 
     /* Specific to scenario Logging into the lecture system using SSO. */
@@ -112,4 +111,55 @@ public class UserAuthenticationStepDefinitions {
         userAuthenticationPage.clickRedirectButton();
         assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
     }
+
+    /* User story 104 */
+
+    /* Successfully entering a lecture */
+
+    @Given("I am authenticated")
+    public void i_am_authenticated() {
+        userAuthenticationPage.becomeAuthenticated();
+    }
+
+    @Given("I am enrolled in the course")
+    public void i_am_enrolled_in_the_course() {
+        userAuthenticationPage.becomeEnrolled();
+    }
+
+    @When("I press the Join Lecture button")
+    public void i_press_the_join_lecture_button() {
+        userAuthenticationPage.clickJoinLectureButton();
+    }
+
+    @Then("I should be redirected to the lecture")
+    public void i_should_be_redirected_to_the_lecture() {
+        assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG 754");
+    }
+
+    /* Unsuccessfully joining a lecture */
+
+    @Given("My authentication status is {string}")
+    public void my_authentication_status_is(String string) {
+        boolean authenticated = Boolean.parseBoolean(string);
+
+        if (authenticated) {
+            this.userAuthenticationPage.becomeAuthenticated();
+        }
+    }
+
+    @Given("My enrolment status is {string}")
+    public void my_enrolment_status_is(String string) {
+        boolean enrolled = Boolean.parseBoolean(string);
+
+        if (enrolled) {
+            this.userAuthenticationPage.becomeEnrolled();
+        }
+    }
+
+    @Then("I should not be redirected to the lecture")
+    public void i_should_not_be_redirected_to_the_lecture() {
+        assertEquals(userAuthenticationPage.getLectureName(), "SOFTENG 754");
+        assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
+    }
+
 }

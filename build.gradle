@@ -26,6 +26,7 @@ test {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:19.0.0'
     testImplementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
