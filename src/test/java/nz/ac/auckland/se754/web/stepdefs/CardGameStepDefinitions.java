@@ -43,5 +43,24 @@ public class CardGameStepDefinitions {
         driver.quit();
     }
 
+    @Given("I visit {string}")
+    public void i_visit(String string){
+        driver.get("http://localhost:8080" + string);
+    }
+
+    @Given("There are {int} other students in the game with me")
+    public void there_are_n_other_players_in_game(int noPlayers){
+        cardGamePage.setNumberOfPlayers(noPlayers);
+    }
+
+    @When("I press the start game button")
+    public void i_have_pressed_start_game_button(){
+        cardGamePage.clickStartGameButton();
+    }
+
+    @Then("I should see my hand of 7 cards")
+    public void i_should_see_my_hand_of_7_cards(){
+        assertTrue(cardGamePage.getPlayerHand());
+    }
 
 }
