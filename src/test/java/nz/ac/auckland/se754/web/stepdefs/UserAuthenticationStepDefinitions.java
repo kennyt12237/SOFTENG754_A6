@@ -160,6 +160,7 @@ public class UserAuthenticationStepDefinitions {
     public void i_should_not_be_redirected_to_the_lecture() {
 //        assertEquals(userAuthenticationPage.)
         assertEquals(userAuthenticationPage.getLectureName(), "SOFTENG 754");
+        assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
     }
 
 }
