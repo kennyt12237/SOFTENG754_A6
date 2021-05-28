@@ -8,13 +8,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -116,6 +114,8 @@ public class UserAuthenticationStepDefinitions {
 
     /* User story 104 */
 
+    /* Successfully entering a lecture */
+
     @Given("I am authenticated")
     public void i_am_authenticated() {
         userAuthenticationPage.becomeAuthenticated();
@@ -140,7 +140,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Given("My authentication status is {string}")
     public void my_authentication_status_is(String string) {
-        boolean authenticated = Boolean.valueOf(string);
+        boolean authenticated = Boolean.parseBoolean(string);
 
         if (authenticated) {
             this.userAuthenticationPage.becomeAuthenticated();
@@ -149,7 +149,7 @@ public class UserAuthenticationStepDefinitions {
 
     @Given("My enrolment status is {string}")
     public void my_enrolment_status_is(String string) {
-        boolean enrolled = Boolean.valueOf(string);
+        boolean enrolled = Boolean.parseBoolean(string);
 
         if (enrolled) {
             this.userAuthenticationPage.becomeEnrolled();
