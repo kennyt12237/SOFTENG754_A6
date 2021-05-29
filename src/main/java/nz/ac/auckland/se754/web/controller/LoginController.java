@@ -12,7 +12,7 @@ import nz.ac.auckland.se754.web.service.Login;
 
 @Controller
 @SessionAttributes("name")
-public class LoginController {
+public class gLoginController {
 
     @Autowired
     Login service;
