@@ -47,12 +47,17 @@ public class BreakoutRoomStepDefinitions {
 
     @Given("the students {string} and {string} and {string} are in the mainroom")
     public void the_students_and_and_are_in_the_mainroom(String string, String string2, String string3) {
+
+    }
+
+    @Given("I visit page {string}")
+    public void i_visit_page(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
 
-    @When("I press the AddBreakoutRoom button {int} times")
-    public void i_press_the_add_breakout_room_button_times(Integer int1) {
+    @When("I press the Add button {int} times")
+    public void i_press_the_add_button_times(Integer int1) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }

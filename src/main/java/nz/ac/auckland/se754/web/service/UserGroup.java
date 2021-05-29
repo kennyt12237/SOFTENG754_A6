@@ -11,23 +11,10 @@ public class UserGroup {
     private List<List<User>> preDefinedGroups;
     private List<User> userList;
 
-    public UserGroup() {
+    public UserGroup(ArrayList<User> list) {
+        userList = list;
         breakoutRooms = new ArrayList<>();
     }
-
-    public Boolean EnableBreakOutRooms(User user) {
-        if (user.GetDesignation() == "admin") {
-            isBreakoutRoomsEnabled = true;
-        } else {
-            isBreakoutRoomsEnabled = false;
-        }
-        return isBreakoutRoomsEnabled;
-    }
-
-//    public List<List<User>> ImportUserGroupsFromCanvas(Canvas cv) {
-//        return cv.GetGroups();
-//    }
-
 
     public boolean CreateBreakoutRooms(List<List<User>> UserGroups) {
         for (List<User> subGroup:UserGroups) {
