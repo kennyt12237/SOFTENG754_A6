@@ -16,20 +16,21 @@ import java.util.List;
 
 @Controller
 public class CardGameController {
-
+/*
     @Autowired
-    CardGame service;
+    CardGame service;*/
 
     @RequestMapping(value="/CardGame", method=RequestMethod.GET)
     public String showCardGamePage(ModelMap model){
         return "cardgame";
     }
 
+    /*
     @RequestMapping(value="/CardGame", method = RequestMethod.POST)
     public CardGame createNewCardGame(){
         List<User> students = new ArrayList<>();
         students.add(null);
         CardGame cardGame = new CardGame(students);
         return cardGame;
-    }
+    }*/
 }

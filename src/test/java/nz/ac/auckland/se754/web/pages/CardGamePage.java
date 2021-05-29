@@ -17,10 +17,10 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="start-game-button")
     private WebElement startGameButton;
 
-    @FindBy(how=How.ID, using="help-icon")
-    private WebElement helpIcon;
+    @FindBy(how=How.ID, using="helpbtn")
+    private WebElement helpButton;
 
-    @FindBy(how=How.ID, using="help-message")
+    @FindBy(how=How.ID, using="helpmsg")
     private WebElement helpMessage;
 
     public void setNumberOfPlayers(int noPlayers){
@@ -40,7 +40,7 @@ public class CardGamePage {
     }
 
     public void clickHelpIcon(){
-        this.helpIcon.click();
+        this.helpButton.click();
     }
 
     public String getRules(){

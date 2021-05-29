@@ -23,7 +23,10 @@ public class CardGameStepDefinitions {
     private CardGamePage cardGamePage;
     @Before
     public void setup() {
+        //need to change win to macos when pushing and remove .exe
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+
+        //System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -44,15 +47,16 @@ public class CardGameStepDefinitions {
         driver.quit();
     }
 
-    @Given("I visit {string}")
-    public void i_visit(String string){
+    @Given("I visit a new page, {string}")
+    public void i_visit_card_game(String string){
         driver.get("http://localhost:8080" + string);
     }
 
-    @When("I press the help icon")
+    @When("I click the help icon")
     public void i_have_pressed_help_icon(){
         cardGamePage.clickHelpIcon();
     }
+
     @Then("I should see the rules of the game")
     public void i_should_see_rules_of_game(){
         assertEquals(cardGamePage.getRules(), "Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.");
