@@ -49,7 +49,7 @@ public class CardGameStepDefinitions {
         driver.get("http://localhost:8080" + string);
     }
 
-    @Given("There are {int} other students in the game with me")
+   /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
         cardGamePage.setNumberOfPlayers(noPlayers);
     }
@@ -66,6 +66,7 @@ public class CardGameStepDefinitions {
     @Then("I should see my hand of 7 cards")
     public void i_should_see_my_hand_of_7_cards(){
         assertTrue(cardGamePage.getPlayerHand());
-    }
+    }*/
+    
 
 }

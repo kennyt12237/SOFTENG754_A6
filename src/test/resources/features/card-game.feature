@@ -11,6 +11,12 @@ Feature: CardGame
 
 
 
+  Scenario: Clicking the help icon
+    When I click the help icon
+    Then I should see the rules of the game
+
+
+
 
 
 
