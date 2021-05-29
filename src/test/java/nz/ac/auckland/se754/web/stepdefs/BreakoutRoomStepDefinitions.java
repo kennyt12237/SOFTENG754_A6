@@ -68,14 +68,12 @@ public class BreakoutRoomStepDefinitions {
 
     @When("I press the Enable button")
     public void i_press_the_enable_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        breakoutRoomPage.clickEnable();
     }
 
     @Then("I should see {string}")
     public void i_should_see(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(message,breakoutRoomPage.getStatusString());
     }
 
 }
