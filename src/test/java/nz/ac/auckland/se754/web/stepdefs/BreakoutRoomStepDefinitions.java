@@ -6,13 +6,10 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import nz.ac.auckland.se754.web.service.LectureSystem;
-import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
+import nz.ac.auckland.se754.web.pages.BreakoutRoomPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,13 +18,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BreakoutRoomStepDefinitions {
 
     private WebDriver driver;
+    private BreakoutRoomPage breakoutRoomPage;
+
     @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        //userAuthenticationPage = new UserAuthenticationPage(driver);
+        breakoutRoomPage = new BreakoutRoomPage(driver);
     }
 
     @AfterStep
@@ -52,22 +51,19 @@ public class BreakoutRoomStepDefinitions {
 
     @Given("I visit page {string}")
     public void i_visit_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.get("http://localhost:8080" + string);
     }
 
     @When("I press the Add button {int} times")
     public void i_press_the_add_button_times(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        for (int i = 0; i < int1; i++) {
+            breakoutRoomPage.clickAdd();
+        }
     }
 
     @Then("I should see {int} breakout rooms created")
     public void i_should_see_breakout_rooms_created(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(int1, breakoutRoomPage.GetBreakoutRoomCount());
     }
-
-
 
 }
