@@ -12,4 +12,3 @@ public class LectureOnlineWebApplication {
         SpringApplication.run(LectureOnlineWebApplication.class, args);
     }
 }
-
