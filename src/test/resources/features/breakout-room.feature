@@ -19,3 +19,8 @@ Feature:  Split students into smaller groups
     Given I visit page "/mainroom-lecturer-screen"
     When I press the Enable button
     Then I should see "Breakout Rooms Enabled"
+
+  Scenario: Lecturer Disables Breakout Rooms
+    Given I visit page "/mainroom-lecturer-screen"
+    When I press the Disable button
+    Then I should see "Breakout Rooms Disabled"
