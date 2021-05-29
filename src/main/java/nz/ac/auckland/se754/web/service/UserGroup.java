@@ -12,6 +12,7 @@ public class UserGroup {
     private List<User> userList;
 
     public UserGroup(ArrayList<User> list) {
+        isBreakoutRoomsEnabled = false;
         userList = list;
         breakoutRooms = new ArrayList<>();
     }
@@ -28,6 +29,14 @@ public class UserGroup {
             breakoutRooms.add(new BreakoutRoom());
         }
         return true;
+    }
+
+    public Boolean getBreakoutRoomsEnabled() {
+        return isBreakoutRoomsEnabled;
+    }
+
+    public void setBreakoutRoomsEnabled(Boolean breakoutRoomsEnabled) {
+        isBreakoutRoomsEnabled = breakoutRoomsEnabled;
     }
 
     public List<BreakoutRoom> GetBreakoutRooms() {

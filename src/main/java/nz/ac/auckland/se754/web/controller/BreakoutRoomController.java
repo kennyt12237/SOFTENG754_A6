@@ -17,17 +17,39 @@ public class BreakoutRoomController {
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET)
     public String showMainPage(ModelMap model) {
-
-        model.put("students", service.maingroup.GetStudents());
-        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
+        LoadPage(model);
         return "mainroom-lecturer-screen";
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.POST)
     public String addBreakoutRoom(ModelMap model){
-        model.put("students", service.maingroup.GetStudents());
         service.maingroup.CreateBreakoutRooms(1);
-        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
+        LoadPage(model);
         return "mainroom-lecturer-screen";
+    }
+
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "enablebk")
+    public String enableshowMainPage(ModelMap model) {
+        service.maingroup.setBreakoutRoomsEnabled(true);
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+
+    }
+
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "disablebk")
+    public String disableshowMainPage(ModelMap model){
+        service.maingroup.setBreakoutRoomsEnabled(false);
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+    }
+
+    public void  LoadPage(ModelMap model){
+        if (service.maingroup.getBreakoutRoomsEnabled()) {
+            model.put("lblEnabled", "Breakout Rooms Enabled");
+        } else {
+            model.put("lblEnabled", "Breakout Rooms Disabled");
+        }
+        model.put("students", service.maingroup.GetStudents());
+        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
     }
 }

@@ -23,6 +23,12 @@
 			<input type="submit" id="addbtn" value="Add" />
 		</form>
 
+		<form action="/mainroom-lecturer-screen" method="get">
+			<input type="submit" id="enablebtn" name="enablebk" value="Enable" />
+			<input type="submit" id="disablebtn" name="disablebk" value="Disable" />
+		</form>
+
+
 		<section id="sidebar">
 			Main Room Users:
 			<ul>
@@ -32,6 +38,7 @@
 			</ul>
 		</section>
 
+		<p id="breakoutstatus">${lblEnabled}</p>
 
 		<c:forEach items="${breakoutRooms}" var="breakoutRoom">
 			<section class="breakoutroom">
