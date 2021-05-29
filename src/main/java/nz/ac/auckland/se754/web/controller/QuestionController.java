@@ -17,10 +17,9 @@ public class QuestionController {
 
     Question studentQuestion;
 
-    @PostMapping(path = "/lectureQuestion")
+    @RequestMapping(path = "/lectureQuestion", method = RequestMethod.POST)
     public String studentAskQuestion(ModelMap model, @RequestParam(required = false) String question, @RequestParam(required = false) Boolean urgent) {
 
-        System.out.println(question == null);
         boolean isQuestion = (question == null || question.indexOf('?') < 0) ? false : true;
         boolean markedUrgent = urgent == null ? false : urgent;
         if (!isQuestion) {
@@ -44,5 +43,10 @@ public class QuestionController {
         model.put("questionText", studentQuestion.getQuestionWithUrgent());
         model.put("upvote", studentQuestion.getUpvotes());
         return "lecture";
+    }
+
+    @RequestMapping(value="/lecturerScreen", method = RequestMethod.GET)
+    public String openWelcomePage(ModelMap model) {
+        return "lecturerScreen";
     }
 }

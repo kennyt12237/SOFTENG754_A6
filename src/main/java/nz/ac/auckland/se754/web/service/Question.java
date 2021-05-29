@@ -59,12 +59,16 @@ public class Question {
     }
 
     public String getQuestionWithUrgent() {
-        String question = "";
-        if (isUrgent) {
-            question = question + "URGENT: ";
-        }
-
+        String question = "Anonymous: ";
         question = question + this.question;
+
+        if (isUrgent) {
+            question = question + " URGENT!!!";
+        }
         return question;
+    }
+
+    public String getAnonymousQuestion() {
+        return "Anonymous: " + this.question;
     }
 }
