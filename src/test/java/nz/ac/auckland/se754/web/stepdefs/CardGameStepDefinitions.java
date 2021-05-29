@@ -3,10 +3,12 @@ package nz.ac.auckland.se754.web.stepdefs;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.pages.CardGamePage;
+import nz.ac.auckland.se754.web.service.CardGame.Card;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
 import org.openqa.selenium.WebDriver;
@@ -60,6 +62,22 @@ public class CardGameStepDefinitions {
     @Then("I should see the rules of the game")
     public void i_should_see_rules_of_game(){
         assertEquals(cardGamePage.getRules(), "Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.");
+    }
+
+    @Given("I have clicked the start game button")
+    public void i_have_clicked_start_game_button(){
+        cardGamePage.clickStartGameButton();
+    }
+    @Then("I should see a single card")
+    public void i_should_see_single_card(){
+        //Not sure how well this will work, may need to refactor
+        Card testCard = new Card(1, 10);
+        assertTrue(cardGamePage.getTopCard() ==  testCard);
+    }
+    @And("I should see the back of the deck")
+    public void i_should_see_back_of_deck(){
+        //Also not too sure of this test, but will need to figure things out first.
+        assertTrue(cardGamePage.getDeckBack());
     }
    /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
