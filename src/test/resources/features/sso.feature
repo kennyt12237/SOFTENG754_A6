@@ -1,8 +1,8 @@
-@sso
+@Sso
 Feature: SSO
 
   Background: I have enrolled a couple students
-    Given I visit "/login"
+    Given I visit the login "/login" page for sso
 
   Scenario: Logging into the lecture system using SSO
     When I press the Sign in with SSO button
