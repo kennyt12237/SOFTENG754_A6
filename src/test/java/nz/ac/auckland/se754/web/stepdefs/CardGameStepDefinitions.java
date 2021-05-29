@@ -55,7 +55,7 @@ public class CardGameStepDefinitions {
     }
     @Then("I should see the rules of the game")
     public void i_should_see_rules_of_game(){
-        assertEquals(cardGamePage.getRules(), "Last Card is a game in which each player takes turn");
+        assertEquals(cardGamePage.getRules(), "Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.");
     }
    /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
