@@ -9,12 +9,13 @@ Feature: CardGame
   #  When I press the start-game button
  #   Then I should see a hand of 7 cards
 
-
-
   Scenario: Clicking the help icon
     When I click the help icon
     Then I should see the rules of the game
 
+  Scenario: Seeing the top card of the deck
+    Given I have clicked the start game button
+    Then I should see a single card
 
 
 

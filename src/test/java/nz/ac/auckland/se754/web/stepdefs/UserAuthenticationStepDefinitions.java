@@ -28,9 +28,9 @@ public class UserAuthenticationStepDefinitions {
     @Before
     public void setup() {
         //need to change win to macos when pushing and remove .exe
-        System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
 
-        //System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
