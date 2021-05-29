@@ -71,9 +71,17 @@ public class BreakoutRoomStepDefinitions {
         breakoutRoomPage.clickEnable();
     }
 
+    @When("I press the Disable button")
+    public void i_press_the_disable_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
     @Then("I should see {string}")
     public void i_should_see(String message) {
         assertEquals(message,breakoutRoomPage.getStatusString());
     }
+
+
 
 }
