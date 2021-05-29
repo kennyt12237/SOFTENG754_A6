@@ -72,7 +72,7 @@ public class BreakoutRoomStepDefinitions {
     }
 
     @Then("I should see {string}")
-    public void i_should_see(String string) {
+    public void i_should_see(String message) {
         assertEquals(message,breakoutRoomPage.getStatusString());
     }
 

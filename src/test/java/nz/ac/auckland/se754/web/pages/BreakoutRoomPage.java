@@ -20,12 +20,34 @@ public class BreakoutRoomPage {
     @FindBy(how=How.ID, using="addbtn")
     private WebElement addButton;
 
+    @FindBy(how = How.ID, using = "enablebtn")
+    private WebElement enableButton;
+
+    @FindBy(how = How.ID, using = "disablebtn")
+    private WebElement disableButton;
+
+    @FindBy(how = How.ID, using = "breakoutstatus")
+    private WebElement status;
+
     public void clickAdd(){
         this.addButton.click();
     }
 
+    public void clickEnable() {
+        this.enableButton.click();
+    }
+
+    public void clickDisable() {
+        this.disableButton.click();
+    }
+
     public int GetBreakoutRoomCount(){
         return breakoutRooms.size();
+    }
+
+    public String getStatusString()
+    {
+        return status.getText();
     }
 }
 
