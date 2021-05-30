@@ -33,6 +33,6 @@ Feature: Question System during Lecture
   Scenario: Lecturer stores question
     And Lecturer presses the store button
     Then Lecturer sees anonymous question as "Anonymous: Can you explain it again?"
-    And Lecturer sees question alert "Flagged"
+    And Lecturer sees question database alert "Stored"
     When Lecturer presses View Database
     Then Lecturer sees question in database "Anonymous: Can you explain it again?"

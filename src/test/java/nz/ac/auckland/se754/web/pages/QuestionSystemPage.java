@@ -45,6 +45,9 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="storeBtn")
     private WebElement storeButton;
 
+    @FindBy(how= How.ID, using="isStoredText")
+    private WebElement storedText;
+
     @FindBy(how= How.ID, using="dbQuestionBtn")
     private WebElement dbQuestionBtn;
 
@@ -96,6 +99,10 @@ public class QuestionSystemPage {
         storeButton.click();
     }
 
+    public String getStoredText() {
+        return this.storedText.getText();
+    }
+
     public void clickDBQuestionButton() {
         dbQuestionBtn.click();
     }
@@ -103,5 +110,4 @@ public class QuestionSystemPage {
     public String getDBQuestionText() {
         return this.dbQuestionText.getText();
     }
-
 }

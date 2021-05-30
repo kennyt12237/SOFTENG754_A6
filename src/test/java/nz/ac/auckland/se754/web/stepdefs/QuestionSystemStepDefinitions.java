@@ -97,6 +97,11 @@ public class QuestionSystemStepDefinitions {
         questionSystemPage.clickStoreButton();
     }
 
+    @And("Lecturer sees question database alert {string}")
+    public void lecturerSeesQuestionDatabaseAlert(String string) {
+        questionSystemPage.getStoredText();
+    }
+
     @When("Lecturer presses View Database")
     public void lecturerPressesViewDatabase() {
         questionSystemPage.clickDBQuestionButton();
