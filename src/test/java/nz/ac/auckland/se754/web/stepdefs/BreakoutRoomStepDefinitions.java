@@ -83,8 +83,9 @@ public class BreakoutRoomStepDefinitions {
 
     @Given("There is a breakout room")
     public void there_is_a_breakout_room() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        if (breakoutRoomPage.GetBreakoutRoomCount() == 0) {
+            breakoutRoomPage.clickAdd();
+        }
     }
 
     @When("I click on the Topic Link of the breakout room")
