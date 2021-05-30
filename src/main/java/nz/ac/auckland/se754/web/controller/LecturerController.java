@@ -73,7 +73,7 @@ public class LecturerController {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (Question q : questions) {
-            if (!stringBuilder.isEmpty()) {
+            if (stringBuilder.length() != 0) {
                 stringBuilder.append(",");
             }
             stringBuilder.append(q.getAnonymousQuestion());
