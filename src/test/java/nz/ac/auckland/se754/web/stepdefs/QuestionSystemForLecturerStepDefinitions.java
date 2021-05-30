@@ -8,7 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import nz.ac.auckland.se754.web.pages.QuestionSystemPage;
+import nz.ac.auckland.se754.web.pages.QuestionSystemForLecturerPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class QuestionSystemStepDefinitions {
+public class QuestionSystemForLecturerStepDefinitions {
 
     private WebDriver driver;
-    private QuestionSystemPage questionSystemPage;
+    private QuestionSystemForLecturerPage questionSystemForLecturerPage;
 
     @Before
     public void setup() {
@@ -27,7 +27,7 @@ public class QuestionSystemStepDefinitions {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        questionSystemPage = new QuestionSystemPage(driver);
+        questionSystemForLecturerPage = new QuestionSystemForLecturerPage(driver);
     }
 
     @AfterStep
@@ -50,66 +50,66 @@ public class QuestionSystemStepDefinitions {
     @Given("lecturer visits {string} and then logs in")
     public void lecturerVisitsAndThenLogsIn(String string) {
         driver.get("http://localhost:8080" + string);
-        questionSystemPage.clickSso();
-        questionSystemPage.clickRedirectToLecture();
-        questionSystemPage.clickLecturerButton();
+        questionSystemForLecturerPage.clickSso();
+        questionSystemForLecturerPage.clickRedirectToLecture();
+        questionSystemForLecturerPage.clickLecturerButton();
     }
 
     @Given("Lecturer receives question {string}")
     public void lecturer_receives_question(String string) {
-        questionSystemPage.clickReceiveQuestionButton();
+        questionSystemForLecturerPage.clickReceiveQuestionButton();
     }
 
     @When("Lecturer presses view question button")
     public void lecturer_presses_view_question_button() {
-       questionSystemPage.clickViewQuestionButton();
+       questionSystemForLecturerPage.clickViewQuestionButton();
     }
 
     @Then("Lecturer sees anonymous question as {string}")
     public void lecturer_sees_anonymous_question_as(String string) {
-        String webQuestion = questionSystemPage.getQuestionText();
+        String webQuestion = questionSystemForLecturerPage.getQuestionText();
         assertEquals(string, webQuestion);
     }
 
     @And("Lecturer presses mark button")
     public void lecturerPressesMarkButton() {
-        questionSystemPage.clickMarkButton();
+        questionSystemForLecturerPage.clickMarkButton();
     }
 
     @And("Lecturer sees question alert {string}")
     public void lecturerSeesQuestionAlert(String string) {
-        String markText = questionSystemPage.getMarkText();
+        String markText = questionSystemForLecturerPage.getMarkText();
         assertEquals(string, markText);
     }
 
     @And("Lecturer presses the flag button")
     public void lecturerPressesTheFlagButton() {
-        questionSystemPage.clickFlagButton();
+        questionSystemForLecturerPage.clickFlagButton();
     }
 
     @And("Lecturer presses the delete button")
     public void lecturerPressesTheDeleteButton() {
-        questionSystemPage.clickDeleteButton();
+        questionSystemForLecturerPage.clickDeleteButton();
     }
 
     @And("Lecturer presses the store button")
     public void lecturerPressesTheStoreButton() {
-        questionSystemPage.clickStoreButton();
+        questionSystemForLecturerPage.clickStoreButton();
     }
 
     @And("Lecturer sees question database alert {string}")
     public void lecturerSeesQuestionDatabaseAlert(String string) {
-        questionSystemPage.getStoredText();
+        questionSystemForLecturerPage.getStoredText();
     }
 
     @When("Lecturer presses View Database")
     public void lecturerPressesViewDatabase() {
-        questionSystemPage.clickDBQuestionButton();
+        questionSystemForLecturerPage.clickDBQuestionButton();
     }
 
     @Then("Lecturer sees question in database {string}")
     public void lecturerSeesQuestionInDatabase(String string) {
-        String dbQuestion = questionSystemPage.getDBQuestionsText();
+        String dbQuestion = questionSystemForLecturerPage.getDBQuestionsText();
         assertEquals(string, dbQuestion);
     }
 }

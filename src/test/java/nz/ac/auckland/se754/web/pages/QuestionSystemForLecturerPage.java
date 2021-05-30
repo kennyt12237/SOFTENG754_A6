@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class QuestionSystemPage {
+public class QuestionSystemForLecturerPage {
 
-    public QuestionSystemPage(WebDriver driver) {
+    public QuestionSystemForLecturerPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
