@@ -87,6 +87,20 @@ public class CardGameStepDefinitions {
         assertEquals(arg0, cardGamePage.validHand());
     }
 
+    @Given("I have a hand of {int} cards")
+    public void iHaveAHandOfCards(int arg0) {
+    }
+
+    @When("I have clicked the draw card button")
+    public void iHaveClickedTheDrawCardButton() {
+    }
+
+    @Then("I should have a hand of {int} cards")
+    public void iShouldHaveAHandOfCards(int arg0) {
+    }
+
+
+
    /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
         cardGamePage.setNumberOfPlayers(noPlayers);
