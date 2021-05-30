@@ -10,7 +10,6 @@
 <p style="color: #ff0000" id="error-message">${errorMessage}</p>
 
 <p style="display:inline; color: #00FF00" name="questionReceivedText" id="questionReceivedText">${questionReceivedText}</p>
-
 <p style="display:inline; color: #00FF00" name="isStoredText" id="isStoredText">${storedText}</p>
 <p style="display:inline" name="dbQuestionsText" id="dbQuestionsText">${dbQuestionsText}</p>
 
