@@ -18,7 +18,7 @@
     <section id="mainContent">
         <div id="bannerImage"><img src="images/AA.JPG" alt=""/></div>
     </section>
-      <p>  Breakout Room Settings : <p>
+      <p>  Breakout Room Settings : </p>
       <p></p>
     <form action="/mainroom-lecturer-screen" method="post">
         <input type="submit" id="addbtn" value="Add" />
@@ -27,6 +27,7 @@
     <form action="/mainroom-lecturer-screen" method="get">
         <input type="submit" id="enablebtn" name="enablebk" value="Enable" />
         <input type="submit" id="disablebtn" name="disablebk" value="Disable" />
+        <input type="submit" id="importcanvas" name="importcanvas" value="Import" />
     </form>
 
     <section id="sidebar">
@@ -49,6 +50,11 @@
         <p class="topic">
            ${breakoutRoom.topicName}
          </p>
+        <ul>
+         <c:forEach items="${breakoutRoom.userSubGroup}" var="stud">
+            <li>${stud.userName}</li>
+         </c:forEach>
+        </ul>
     </section>
     </c:forEach>
 

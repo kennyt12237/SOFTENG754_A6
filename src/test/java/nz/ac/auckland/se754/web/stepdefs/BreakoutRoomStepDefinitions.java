@@ -112,13 +112,11 @@ public class BreakoutRoomStepDefinitions {
 
     @Given("The Canvas Group contains {int} groups")
     public void the_canvas_group_contains_groups(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
+
     @When("I press the Import button")
     public void i_press_the_import_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        breakoutRoomPage.clickImport();
     }
 
 }

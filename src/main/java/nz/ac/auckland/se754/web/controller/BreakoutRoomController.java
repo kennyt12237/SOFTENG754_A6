@@ -1,5 +1,6 @@
 package nz.ac.auckland.se754.web.controller;
 
+import nz.ac.auckland.se754.web.service.Canvas;
 import nz.ac.auckland.se754.web.service.MainRoom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,6 +60,13 @@ public class BreakoutRoomController {
     @RequestMapping(value = "/addtopic", method = RequestMethod.POST)
     public String addTopic(ModelMap model, @RequestParam String roomid, @RequestParam(required = false) String topicname) {
         service.maingroup.SetTopicNameForGivenRoom(roomid, topicname);
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+    }
+
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "importcanvas")
+    public String canvasImportGroups(ModelMap model) {
+        service.maingroup.CreateBreakoutRooms(service.maingroup.importUserGroupsFromCanvas(new Canvas()));
         LoadPage(model);
         return "mainroom-lecturer-screen";
     }

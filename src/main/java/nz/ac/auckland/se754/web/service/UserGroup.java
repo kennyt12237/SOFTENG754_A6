@@ -17,8 +17,14 @@ public class UserGroup {
         breakoutRooms = new ArrayList<>();
     }
 
+    public List<List<User>> importUserGroupsFromCanvas(Canvas cv) {
+        return cv.getUserList();
+    }
+
     public boolean CreateBreakoutRooms(List<List<User>> UserGroups) {
-        for (List<User> subGroup : UserGroups) {
+        userList.clear();
+        breakoutRooms.clear();
+        for (List<User> subGroup:UserGroups) {
             breakoutRooms.add(new BreakoutRoom(subGroup));
         }
         return true;

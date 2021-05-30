@@ -14,10 +14,10 @@ public class BreakoutRoomPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how=How.CLASS_NAME, using ="breakoutroom")
+    @FindBy(how = How.CLASS_NAME, using = "breakoutroom")
     private List<WebElement> breakoutRooms;
 
-    @FindBy(how=How.ID, using="addbtn")
+    @FindBy(how = How.ID, using = "addbtn")
     private WebElement addButton;
 
     @FindBy(how = How.ID, using = "enablebtn")
@@ -41,7 +41,10 @@ public class BreakoutRoomPage {
     @FindBy(how = How.ID, using = "addtopicbtn")
     private WebElement addTopicBtn;
 
-    public void clickAdd(){
+    @FindBy(how = How.ID, using = "importcanvas")
+    private WebElement importBtn;
+
+    public void clickAdd() {
         this.addButton.click();
     }
 
@@ -53,12 +56,11 @@ public class BreakoutRoomPage {
         this.disableButton.click();
     }
 
-    public int GetBreakoutRoomCount(){
+    public int GetBreakoutRoomCount() {
         return breakoutRooms.size();
     }
 
-    public String getStatusString()
-    {
+    public String getStatusString() {
         return status.getText();
     }
 
@@ -77,5 +79,8 @@ public class BreakoutRoomPage {
     public void clickAddTopic() {
         this.addTopicBtn.click();
     }
+
+    public void clickImport() { this.importBtn.click(); }
+
 }
 

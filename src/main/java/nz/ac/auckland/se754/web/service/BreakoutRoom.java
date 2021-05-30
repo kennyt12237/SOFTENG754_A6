@@ -11,8 +11,13 @@ public class BreakoutRoom {
     private Integer maxGroupSize = 10;
     private List<User> userSubGroup;
     private Boolean ActivityStatus;
+
     public UUID getId() {
         return id;
+    }
+
+    public List<User> getUserSubGroup() {
+        return userSubGroup;
     }
 
     //Create Breakout Room
@@ -25,7 +30,10 @@ public class BreakoutRoom {
 
     //Create Breakout Room with a group of students
     public BreakoutRoom(List<User> group) {
+        topicName = "---";
+        id = UUID.randomUUID();
         userSubGroup = group;
+        ActivityStatus = false;
     }
 
     //Set Breakout Room Topic Name
