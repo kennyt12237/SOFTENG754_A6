@@ -30,3 +30,9 @@ Feature: Question System during Lecture
     When Lecturer presses the delete button
     Then Lecturer sees anonymous question as ""
 
+  Scenario: Lecturer stores question
+    And Lecturer presses the store button
+    Then Lecturer sees anonymous question as "Anonymous: Can you explain it again?"
+    And Lecturer sees question alert "Flagged"
+    When Lecturer presses View Database
+    Then Lecturer sees question in database "Anonymous: Can you explain it again?"
