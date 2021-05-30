@@ -41,6 +41,8 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="deck")
     private WebElement deck;
 
+    @FindBy(how=How.ID, using="drawCard")
+    private WebElement drawCard;
 
 
     public void clickStartGameButton(){
@@ -63,6 +65,10 @@ public class CardGamePage {
 
     public String getRules(){
        return this.helpMessage.getText();
+    }
+
+    public void clickDrawCard(){
+        this.drawCard.click();
     }
 
     public String getTopCardValue(){
@@ -90,14 +96,10 @@ public class CardGamePage {
         return false;
     }
 
-    public String getDeckBack(){
-        return "Deck Back";
-    }
 
 
     public int validHand(){
         String hand = this.hand.getText();
-        //return hand;
         int validCardCounter = 0;
         for(int i =0; i < hand.length(); i++){
             if(hand.charAt(i) == 'D' || hand.charAt(i) == 'H' || hand.charAt(i) == 'S' || hand.charAt(i) == 'C'){
@@ -109,9 +111,5 @@ public class CardGamePage {
             }
         }
         return validCardCounter;
-        /*if(validCardCounter == numCards){
-            return true;
-        }
-        return false;*/
     }
 }

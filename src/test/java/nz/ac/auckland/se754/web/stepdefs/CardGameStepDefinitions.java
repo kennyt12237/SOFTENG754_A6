@@ -75,11 +75,6 @@ public class CardGameStepDefinitions {
         //assertEquals("Diamonds", cardGamePage.getTopCardSuit());
         //assertEquals("10", cardGamePage.getTopCardValue());
     }
-    @And("I should see the back of the deck")
-    public void i_should_see_back_of_deck(){
-        //Also not too sure of this test, but will need to figure things out first.
-        assertTrue(cardGamePage.getDeckBack()=="Deck Back");
-    }
 
 
     @Then("I should see a hand of {int} cards")
@@ -94,7 +89,7 @@ public class CardGameStepDefinitions {
 
     @When("I have clicked the draw card button")
     public void iHaveClickedTheDrawCardButton() {
-        cardGamePage.drawCardButton.click();
+        cardGamePage.clickDrawCard();
     }
 
     @Then("I should have a hand of {int} cards")

@@ -17,7 +17,6 @@ Feature: CardGame
   Scenario: Seeing the top card of the deck
     Given I have clicked the start game button
     Then I should see a single card
-    And I should see the back of the deck
 
     Scenario: Seeing your own hand
       Then I should see a hand of 7 cards

@@ -19,19 +19,19 @@
         }
 
         div.Card{
-            width:200px;
-            height:300px;
+            width:220px;
+            height:100px;
             margin:10px;
             float:left;
         }
         div.deck{
-            height:400px;
+            height:200px;
             margin:10px;
             overflow:hidden;
         }
         div.playerHand{
-            height:400px;
             overflow:hidden;
+            margin:10px;
         }
     </style>
 </head>
@@ -39,10 +39,10 @@
 <div class="container">
     <div class="cardGameContainer">
         <div class ="deck">
-            <div id="deckBack">
-                <div class="Card">
-                    <button id="drawCard">Draw Card</button>
-                </div>
+            <div class="Card">
+                <form method = "post">
+                    <input type="submit" id="drawCard" value="Draw Card"></input>
+                </form>
             </div>
             <div id="topCard">
                 <div class="Card">
