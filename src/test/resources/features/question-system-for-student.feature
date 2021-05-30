@@ -2,9 +2,8 @@
 Feature: Question System for students during Lecture
 
   Background:
-    Given lecturer visits "/login" and then logs in
-    And Lecturer receives question "Can you explain interactivity?"
-    When Lecturer presses view question button
+    Given Student visits "/login" and then logs in
+    When Student asks question "Can you explain interactivity?"
 
-  Scenario: Lecturer receives anonymous question
-    And Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
+  Scenario: Student asks anonymous question
+    Then Student should see anonymous question "Anonymous: Can you explain interactivity?"
