@@ -34,7 +34,7 @@ public class QuestionSystemForStudentStepDefinitions {
         questionSystemForStudentPage = new QuestionSystemForStudentPage(driver);
     }
 
-    @AfterStep
+    @AfterStep("@QuestionSystemForStudent")
     public void afterEachStep() {
         // to make the test at human speed
         try {
@@ -44,7 +44,7 @@ public class QuestionSystemForStudentStepDefinitions {
         }
     }
 
-    @After
+    @After("@QuestionSystemForStudent")
     public void tearDown() {
         driver.quit();
     }
