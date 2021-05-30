@@ -7,7 +7,7 @@ Feature: Question System For Lecturer during Lecture
     When Lecturer presses view question button
 
   Scenario: Lecturer receives anonymous question
-    And Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
+    Then Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
 
   Scenario: Lecturer marks question read
     And Lecturer presses mark button
