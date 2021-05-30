@@ -70,4 +70,9 @@ public class QuestionSystemForStudentStepDefinitions {
     public void studentPressesAskQuestionButton() {
         questionSystemForStudentPage.clickAskQuestionButton();
     }
+
+    @And("Student checks the urgent checkbox")
+    public void studentChecksTheUrgentCheckbox() {
+
+    }
 }
