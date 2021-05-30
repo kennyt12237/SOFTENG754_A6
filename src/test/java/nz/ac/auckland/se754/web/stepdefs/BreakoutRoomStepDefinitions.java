@@ -81,6 +81,25 @@ public class BreakoutRoomStepDefinitions {
         assertEquals(message,breakoutRoomPage.getStatusString());
     }
 
-
+    @When("I click on the Topic Link of the breakout room")
+    public void i_click_on_the_topic_link_of_the_breakout_room() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("Type in {string} as the topic name")
+    public void type_in_as_the_topic_name(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("press Add topic button.")
+    public void press_add_topic_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("I should see {string} as the topic name for that breakout room.")
+    public void i_should_see_as_the_topic_name_for_that_breakout_room(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 }
