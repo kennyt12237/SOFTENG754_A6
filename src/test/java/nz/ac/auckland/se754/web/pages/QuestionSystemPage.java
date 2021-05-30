@@ -12,6 +12,15 @@ public class QuestionSystemPage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(how = How.ID, using="ssobtn")
+    private WebElement ssoButton;
+
+    @FindBy(how= How.ID, using="redirect-button")
+    private WebElement redirectButton;
+
+    @FindBy(how= How.ID, using="lecturerBtn")
+    private WebElement lecturerButton;
+
     @FindBy(how= How.ID, using="receiveBtn")
     private WebElement receiveQuestionButton;
 
@@ -21,5 +30,27 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="questionText")
     private WebElement questionText;
 
+    public void clickSso() {
+        this.ssoButton.click();
+    }
 
+    public void clickRedirectToLecture() {
+        this.redirectButton.click();
+    }
+
+    public void clickLecturerButton() {
+        this.lecturerButton.click();
+    }
+
+    public void clickReceiveQuestionButton() {
+        this.receiveQuestionButton.click();
+    }
+
+    public void clickViewQuestionButton() {
+        this.viewQuestionButton.click();
+    }
+
+    public String getQuestionText() {
+        return this.questionText.getText();
+    }
 }

@@ -2,7 +2,9 @@ package nz.ac.auckland.se754.web.stepdefs;
 
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class QuestionSystemStepDefinitions {
 
@@ -26,26 +30,46 @@ public class QuestionSystemStepDefinitions {
         questionSystemPage = new QuestionSystemPage(driver);
     }
 
+    @AfterStep
+    public void afterEachStep() {
+        // to make the test at human speed
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @After
     public void tearDown() {
         driver.quit();
     }
 
+
+    @Given("lecturer visits {string} and then logs in")
+    public void lecturerVisitsAndThenLogsIn(String string) {
+        driver.get("http://localhost:8080" + string);
+        questionSystemPage.clickSso();
+        questionSystemPage.clickRedirectToLecture();
+        questionSystemPage.clickLecturerButton();
+    }
+
     @Given("Lecturer receives question {string}")
     public void lecturer_receives_question(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        questionSystemPage.clickReceiveQuestionButton();
     }
 
     @When("Lecturer presses view question button")
     public void lecturer_presses_view_question_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       questionSystemPage.clickViewQuestionButton();
     }
 
     @Then("Lecturer sees anonymous question as {string}")
     public void lecturer_sees_anonymous_question_as(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String webQuestion = questionSystemPage.getQuestionText();
+        String anonQuestion = "Anonymous: " + string;
+        assertEquals(anonQuestion, webQuestion);
     }
+
 }

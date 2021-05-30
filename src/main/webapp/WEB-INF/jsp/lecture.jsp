@@ -18,12 +18,9 @@
 <form action="/lectureUpvoteQuestion" method="post">
     <p style="display:inline" name="questionText" id="questionText">${questionText}</p>
     <p style="display:inline" name="upvote" id="upvote">${upvote}</p>
-        <input type="submit" value="Upvote" ${questionText.length() > 0 ? '' : 'hidden'}/>
+        <input type="submit" value="upvoteCount" id="upvoteCount" ${questionText.length() > 0 ? '' : 'hidden'}/>
 </form>
 
-<form action="/lecturerScreen" method="get">
-    <input type="submit" value="switchToLecturer" ${questionText.length() > 0 ? '' : 'hidden'}/>
-</form>
 </body>
 
 </html>

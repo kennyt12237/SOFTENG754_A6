@@ -17,6 +17,10 @@
             Enrolled? : <input type="checkbox" name="enrolled" id="enrolled"/>
             <button id="join-lecture-button">Join Lecture!</button>
         </form>
+
+        <form action="/lecturerScreen" method="get">
+            <input type="submit" value="I am lecturer" id="lecturerBtn"/>
+        </form>
     </div>
 </div>
 </body>
