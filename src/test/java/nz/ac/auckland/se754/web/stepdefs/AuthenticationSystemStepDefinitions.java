@@ -22,7 +22,7 @@ public class AuthenticationSystemStepDefinitions {
     @Before("@AuthenticationSystem")
     public void setup() {
         if (System.getProperty("os.name").startsWith("Windows")) {
-            Systgitem.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
         } else {
             System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
         }
