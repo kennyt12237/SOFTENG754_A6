@@ -37,3 +37,9 @@ Feature:  Split students into smaller groups
       | topic name       | display name     |
       | "SE754 Group 1"  | "SE754 Group 1"  |
       | "SE754 Group 11" | "SE754 Group 11" |
+
+  Scenario: Lecturer Imports Groups From Canvas And Creates Breakout Rooms
+    Given I visit page "/mainroom-lecturer-screen"
+    And The Canvas Group contains 2 groups
+    When I press the Import button
+    Then I should see 2 breakout rooms created
