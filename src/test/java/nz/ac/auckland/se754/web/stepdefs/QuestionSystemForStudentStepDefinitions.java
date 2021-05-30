@@ -6,12 +6,14 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import nz.ac.auckland.se754.web.pages.QuestionSystemForLecturerPage;
 import nz.ac.auckland.se754.web.pages.QuestionSystemForStudentPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class QuestionSystemForStudentStepDefinitions {
 
@@ -44,14 +46,23 @@ public class QuestionSystemForStudentStepDefinitions {
 
     @Given("Student visits {string} and then logs in")
     public void studentVisitsAndThenLogsIn(String string) {
+        driver.get("http://localhost:8080" + string);
+        questionSystemForStudentPage.clickSso();
+        questionSystemForStudentPage.clickRedirectToLecture();
+        questionSystemForStudentPage.becomeAuthenticated();
+        questionSystemForStudentPage.becomeEnrolled();
+        questionSystemForStudentPage.clickJoinLectureButton();
     }
 
     @When("Student asks question {string}")
     public void studentAsksQuestion(String string) {
-
+        questionSystemForStudentPage.insertQuestion(string);
+        questionSystemForStudentPage.clickAskQuestionButton();
     }
 
     @Then("Student should see anonymous question {string}")
     public void studentShouldSeeAnonymousQuestion(String string) {
+        String questionTxt = questionSystemForStudentPage.getQuestionText();
+        assertEquals(string, questionTxt);
     }
 }

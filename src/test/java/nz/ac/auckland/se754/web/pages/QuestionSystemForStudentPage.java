@@ -27,6 +27,15 @@ public class QuestionSystemForStudentPage {
     @FindBy(how= How.ID, using="join-lecture-button")
     private WebElement joinLectureButton;
 
+    @FindBy(how= How.ID, using="question")
+    private WebElement questionTextBox;
+
+    @FindBy(how= How.ID, using="askQuestionBtn")
+    private WebElement askQuestionButton;
+
+    @FindBy(how= How.ID, using="questionText")
+    private WebElement questionText;
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -45,5 +54,17 @@ public class QuestionSystemForStudentPage {
 
     public void clickJoinLectureButton() {
         this.joinLectureButton.click();
+    }
+
+    public void insertQuestion(String question){
+        this.questionTextBox.sendKeys(question);
+    }
+
+    public void clickAskQuestionButton() {
+        this.askQuestionButton.click();
+    }
+
+    public String getQuestionText() {
+        return this.questionText.getText();
     }
 }
