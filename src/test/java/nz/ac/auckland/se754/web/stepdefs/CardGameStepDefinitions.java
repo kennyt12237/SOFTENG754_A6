@@ -89,14 +89,17 @@ public class CardGameStepDefinitions {
 
     @Given("I have a hand of {int} cards")
     public void iHaveAHandOfCards(int arg0) {
+        assertEquals(arg0, cardGamePage.validHand());
     }
 
     @When("I have clicked the draw card button")
     public void iHaveClickedTheDrawCardButton() {
+        cardGamePage.drawCardButton.click();
     }
 
     @Then("I should have a hand of {int} cards")
     public void iShouldHaveAHandOfCards(int arg0) {
+        assertEquals(arg0, cardGamePage.validHand());
     }
 
 
