@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import nz.ac.auckland.se754.web.pages.SSOPage;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
 import org.openqa.selenium.WebDriver;
@@ -25,26 +26,30 @@ public class UserAuthenticationStepDefinitions {
     private WebDriver driver;
     private UserAuthenticationPage userAuthenticationPage;
 
-    @Before
+    @Before("@UserAuthentication")
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+        }
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         userAuthenticationPage = new UserAuthenticationPage(driver);
     }
 
-    @AfterStep
+    @AfterStep("@UserAuthentication")
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(100);
+            Thread.sleep(0);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    @After
+    @After("@UserAuthentication")
     public void tearDown() {
         driver.quit();
     }
@@ -54,8 +59,8 @@ public class UserAuthenticationStepDefinitions {
         lectureSystem = new LectureSystem(Arrays.asList(username1, username2), Arrays.asList(passwords, passwords), new ArrayList<>());
     }
 
-    @Given("I visit {string}")
-    public void i_visit(String string) {
+    @Given("I visit the login {string} page")
+    public void i_visit_the_login_page(String string) {
         driver.get("http://localhost:8080" + string);
     }
 
@@ -82,19 +87,6 @@ public class UserAuthenticationStepDefinitions {
         assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username + "!");
     }
 
-    /* Specific to scenario Logging into the lecture system using SSO. */
-
-    @When("I press the Sign in with SSO button")
-    public void i_press_the_sign_in_with_sso_button() {
-        userAuthenticationPage.clickSso();
-    }
-
-    @Then("I should see the SSO login page")
-    public void i_should_see_the_sso_login_page() {
-        assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
-        assertEquals(userAuthenticationPage.getWelcomeText(), "Thank you for signing in through SSO");
-    }
-
     /* Specific to scenario Unsuccessfully logging into the lecture system. */
     @Then("I should not see the welcome page")
     public void i_should_not_see_the_welcome_page() {
@@ -105,61 +97,4 @@ public class UserAuthenticationStepDefinitions {
     public void i_should_see_an_error_message() {
         assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
     }
-
-    @Then("I can redirect to the welcome page")
-    public void i_can_redirect_to_the_welcome_page() {
-        userAuthenticationPage.clickRedirectButton();
-        assertEquals(userAuthenticationPage.getMessage(), "Welcome SSO User!");
-    }
-
-    /* User story 104 */
-
-    /* Successfully entering a lecture */
-
-    @Given("I am authenticated")
-    public void i_am_authenticated() {
-        userAuthenticationPage.becomeAuthenticated();
-    }
-
-    @Given("I am enrolled in the course")
-    public void i_am_enrolled_in_the_course() {
-        userAuthenticationPage.becomeEnrolled();
-    }
-
-    @When("I press the Join Lecture button")
-    public void i_press_the_join_lecture_button() {
-        userAuthenticationPage.clickJoinLectureButton();
-    }
-
-    @Then("I should be redirected to the lecture")
-    public void i_should_be_redirected_to_the_lecture() {
-        assertEquals(userAuthenticationPage.getLectureWelcomeText(), "Welcome to SOFTENG 754");
-    }
-
-    /* Unsuccessfully joining a lecture */
-
-    @Given("My authentication status is {string}")
-    public void my_authentication_status_is(String string) {
-        boolean authenticated = Boolean.parseBoolean(string);
-
-        if (authenticated) {
-            this.userAuthenticationPage.becomeAuthenticated();
-        }
-    }
-
-    @Given("My enrolment status is {string}")
-    public void my_enrolment_status_is(String string) {
-        boolean enrolled = Boolean.parseBoolean(string);
-
-        if (enrolled) {
-            this.userAuthenticationPage.becomeEnrolled();
-        }
-    }
-
-    @Then("I should not be redirected to the lecture")
-    public void i_should_not_be_redirected_to_the_lecture() {
-        assertEquals(userAuthenticationPage.getLectureName(), "SOFTENG 754");
-        assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
-    }
-
 }
