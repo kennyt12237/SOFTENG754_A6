@@ -1,12 +1,9 @@
 package nz.ac.auckland.se754.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.lang.StringBuilder;
@@ -43,7 +40,6 @@ public class LecturerController {
 
     @RequestMapping(path = "/markQuestion", method = RequestMethod.POST)
     public String lecturerMarkQuestion(ModelMap model) {
-        studentQuestion.markAnswered();
         model.put("questionText", studentQuestion.getAnonymousQuestion());
         model.put("markText", "Marked");
         return "lecturerScreen";
@@ -51,7 +47,6 @@ public class LecturerController {
 
     @RequestMapping(path = "/flagQuestion", method = RequestMethod.POST)
     public String lecturerFlagQuestion(ModelMap model) {
-        studentQuestion.setFlagged();
         model.put("questionText", studentQuestion.getAnonymousQuestion());
         model.put("markText", "Flagged");
         return "lecturerScreen";

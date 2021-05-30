@@ -34,7 +34,7 @@ public class QuestionSystemForStudentStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -43,16 +43,6 @@ public class QuestionSystemForStudentStepDefinitions {
     @After
     public void tearDown() {
         driver.quit();
-    }
-
-    @Given("Student visits {string} and then logs in")
-    public void studentVisitsAndThenLogsIn(String string) {
-        driver.get("http://localhost:8080" + string);
-        questionSystemForStudentPage.clickSso();
-        questionSystemForStudentPage.clickRedirectToLecture();
-        questionSystemForStudentPage.becomeAuthenticated();
-        questionSystemForStudentPage.becomeEnrolled();
-        questionSystemForStudentPage.clickJoinLectureButton();
     }
 
     @Then("Student should see anonymous question {string}")
@@ -86,5 +76,19 @@ public class QuestionSystemForStudentStepDefinitions {
         int expUpvoteCount = Integer.parseInt(string);
         int actUpvoteCount = Integer.parseInt(questionSystemForStudentPage.getUpvoteCountText());
         assertEquals(expUpvoteCount, actUpvoteCount);
+    }
+
+    @Given("Student visits the site {string}")
+    public void studentVisitsTheSite(String string) {
+        driver.get("http://localhost:8080" + string);
+    }
+
+    @And("Student logs in proceeding to lecture")
+    public void studentLogsInProceedingToLecture() {
+        questionSystemForStudentPage.clickSso();
+        questionSystemForStudentPage.clickRedirectToLecture();
+        questionSystemForStudentPage.becomeAuthenticated();
+        questionSystemForStudentPage.becomeEnrolled();
+        questionSystemForStudentPage.clickJoinLectureButton();
     }
 }

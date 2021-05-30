@@ -34,7 +34,7 @@ public class QuestionSystemForLecturerStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -62,7 +62,7 @@ public class QuestionSystemForLecturerStepDefinitions {
 
     @When("Lecturer presses view question button")
     public void lecturer_presses_view_question_button() {
-       questionSystemForLecturerPage.clickViewQuestionButton();
+        questionSystemForLecturerPage.clickViewQuestionButton();
     }
 
     @Then("Lecturer sees anonymous question as {string}")

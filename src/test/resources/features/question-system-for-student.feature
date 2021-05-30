@@ -2,7 +2,8 @@
 Feature: Question System for students during Lecture
 
   Background:
-    Given Student visits "/login" and then logs in
+    Given Student visits the site "/login"
+    And Student logs in proceeding to lecture
     When Student writes question "Can you explain interactivity?"
 
   Scenario: Student asks anonymous question
