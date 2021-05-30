@@ -86,4 +86,8 @@ public class QuestionSystemStepDefinitions {
     public void lecturerPressesTheFlagButton() {
         questionSystemPage.clickFlagButton();
     }
+
+    @And("Lecturer presses the delete button")
+    public void lecturerPressesTheDeleteButton() {
+    }
 }
