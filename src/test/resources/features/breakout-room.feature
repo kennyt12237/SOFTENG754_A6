@@ -27,6 +27,7 @@ Feature:  Split students into smaller groups
 
   Scenario Outline: The Breakout Room Should Have a Topic Identifier
     Given I visit page "/mainroom-lecturer-screen"
+    And There is a breakout room
     When I click on the Topic Link of the breakout room
     And Type in <topic name> as the topic name
     And press Add topic button.

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -22,7 +23,7 @@ public class BreakoutRoomController {
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.POST)
-    public String addBreakoutRoom(ModelMap model){
+    public String addBreakoutRoom(ModelMap model) {
         service.maingroup.CreateBreakoutRooms(1);
         LoadPage(model);
         return "mainroom-lecturer-screen";
@@ -37,13 +38,32 @@ public class BreakoutRoomController {
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "disablebk")
-    public String disableshowMainPage(ModelMap model){
+    public String disableshowMainPage(ModelMap model) {
         service.maingroup.setBreakoutRoomsEnabled(false);
         LoadPage(model);
         return "mainroom-lecturer-screen";
     }
 
-    public void  LoadPage(ModelMap model){
+    @RequestMapping(value = "/addtopic", method = RequestMethod.GET)
+    public String setTopic(ModelMap model, @RequestParam String id) {
+        if (id == "") {
+            LoadPage(model);
+            return "mainroom-lecturer-screen";
+        } else {
+            model.put("idnum", id);
+            return "addtopic";
+        }
+
+    }
+
+    @RequestMapping(value = "/addtopic", method = RequestMethod.POST)
+    public String addTopic(ModelMap model, @RequestParam String roomid, @RequestParam(required = false) String topicname) {
+        service.maingroup.SetTopicNameForGivenRoom(roomid, topicname);
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+    }
+
+    public void LoadPage(ModelMap model) {
         if (service.maingroup.getBreakoutRoomsEnabled()) {
             model.put("lblEnabled", "Breakout Rooms Enabled");
         } else {

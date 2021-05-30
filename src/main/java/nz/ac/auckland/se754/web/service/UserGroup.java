@@ -1,8 +1,8 @@
 package nz.ac.auckland.se754.web.service;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 public class UserGroup {
 
@@ -18,7 +18,7 @@ public class UserGroup {
     }
 
     public boolean CreateBreakoutRooms(List<List<User>> UserGroups) {
-        for (List<User> subGroup:UserGroups) {
+        for (List<User> subGroup : UserGroups) {
             breakoutRooms.add(new BreakoutRoom(subGroup));
         }
         return true;
@@ -29,6 +29,15 @@ public class UserGroup {
             breakoutRooms.add(new BreakoutRoom());
         }
         return true;
+    }
+
+    public void SetTopicNameForGivenRoom(String id, String topic) {
+        for (BreakoutRoom br : breakoutRooms) {
+            if (br.getId().equals(UUID.fromString(id))) {
+                br.SetTopicName(topic);
+            }
+
+        }
     }
 
     public Boolean getBreakoutRoomsEnabled() {
@@ -60,12 +69,12 @@ public class UserGroup {
     }
 
     public void JoinBreakoutRoom(User user, BreakoutRoom room) {
-        if(room.AddNewUser(user))
-        {
+        if (room.AddNewUser(user)) {
             userList.remove(user);
         }
     }
+
     public void Notify(BreakoutRoom breakoutRoom) {
-        System.out.print("Request to Join received from " + breakoutRoom.GetTopicName() );
+        System.out.print("Request to Join received from " + breakoutRoom.getTopicName());
     }
 }

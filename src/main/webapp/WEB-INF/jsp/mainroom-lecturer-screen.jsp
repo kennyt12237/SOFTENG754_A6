@@ -11,43 +11,49 @@
 </head>
 
 <body>
-	<div id="mainwrapper">
+<div id="mainwrapper">
 
-	  <div id="content">
+  <div id="content">
 
-		<section id="mainContent">
-			<div id="bannerImage"><img src="images/AA.JPG" alt=""/></div>
-		</section>
+    <section id="mainContent">
+        <div id="bannerImage"><img src="images/AA.JPG" alt=""/></div>
+    </section>
+      <p>  Breakout Room Settings : <p>
+      <p></p>
+    <form action="/mainroom-lecturer-screen" method="post">
+        <input type="submit" id="addbtn" value="Add" />
+    </form>
 
-		<form method="post">
-			<input type="submit" id="addbtn" value="Add" />
-		</form>
+    <form action="/mainroom-lecturer-screen" method="get">
+        <input type="submit" id="enablebtn" name="enablebk" value="Enable" />
+        <input type="submit" id="disablebtn" name="disablebk" value="Disable" />
+    </form>
 
-		<form action="/mainroom-lecturer-screen" method="get">
-			<input type="submit" id="enablebtn" name="enablebk" value="Enable" />
-			<input type="submit" id="disablebtn" name="disablebk" value="Disable" />
-		</form>
+    <section id="sidebar">
+        Main Room Users:
+        <ul>
+            <c:forEach items="${students}" var="student">
+                <li>${student.userName}</li>
+            </c:forEach>
+        </ul>
+    </section>
+
+    <p id="breakoutstatus">${lblEnabled}</p>
 
 
-		<section id="sidebar">
-			Main Room Users:
-			<ul>
-				<c:forEach items="${students}" var="student">
-					<li>${student.userName}</li>
-				</c:forEach>
-			</ul>
-		</section>
+    <c:forEach items="${breakoutRooms}" var="breakoutRoom">
+    <section class="breakoutroom">
+        <p>Breakout Room :
+           <a class="topicbtn" href="addtopic?id=${breakoutRoom.id}" title="Link"> Topic:</a>
+        </p>
+        <p class="topic">
+           ${breakoutRoom.topicName}
+         </p>
+    </section>
+    </c:forEach>
 
-		<p id="breakoutstatus">${lblEnabled}</p>
+  </div>
 
-		<c:forEach items="${breakoutRooms}" var="breakoutRoom">
-			<section class="breakoutroom">
-				Bk Room - <a href="addtopic" title="Link">Topic:</a>
-		  </section>
-		</c:forEach>
-
-		</div>
-
-	</div>
+</div>
 </body>
 </html>

@@ -2,16 +2,23 @@ package nz.ac.auckland.se754.web.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class BreakoutRoom {
 
+    private UUID id;
     private String topicName;
     private Integer maxGroupSize = 10;
     private List<User> userSubGroup;
     private Boolean ActivityStatus;
+    public UUID getId() {
+        return id;
+    }
 
     //Create Breakout Room
     public BreakoutRoom() {
+        topicName = "---";
+        id = UUID.randomUUID();
         userSubGroup = new ArrayList<User>();
         ActivityStatus = false;
     }
@@ -27,8 +34,8 @@ public class BreakoutRoom {
     }
 
     //Get Breakout Room Topic Name
-    public String GetTopicName() {
-        return this.topicName;
+    public String getTopicName() {
+        return topicName;
     }
 
     public List<User> GetUserGroup() {

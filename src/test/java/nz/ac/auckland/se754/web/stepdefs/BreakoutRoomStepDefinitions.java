@@ -78,26 +78,36 @@ public class BreakoutRoomStepDefinitions {
 
     @Then("I should see {string}")
     public void i_should_see(String message) {
-        assertEquals(message,breakoutRoomPage.getStatusString());
+        assertEquals(message, breakoutRoomPage.getStatusString());
+    }
+
+    @Given("There is a breakout room")
+    public void there_is_a_breakout_room() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
     @When("I click on the Topic Link of the breakout room")
     public void i_click_on_the_topic_link_of_the_breakout_room() {
         breakoutRoomPage.clickTopic();
-        driver.getCurrentUrl();
+
     }
+
     @When("Type in {string} as the topic name")
     public void type_in_as_the_topic_name(String name) {
+        driver.getCurrentUrl();
         breakoutRoomPage.setTopic(name);
     }
+
     @When("press Add topic button.")
     public void press_add_topic_button() {
         breakoutRoomPage.clickAddTopic();
-        driver.getCurrentUrl();
     }
+
     @Then("I should see {string} as the topic name for that breakout room.")
     public void i_should_see_as_the_topic_name_for_that_breakout_room(String message) {
-        assertEquals(message,breakoutRoomPage.getTopic());
+        driver.getCurrentUrl();
+        assertEquals(message, breakoutRoomPage.getTopic());
     }
 
 }
