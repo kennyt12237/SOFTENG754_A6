@@ -36,6 +36,9 @@ public class QuestionSystemForStudentPage {
     @FindBy(how= How.ID, using="questionText")
     private WebElement questionText;
 
+    @FindBy(how= How.ID, using="urgent")
+    private WebElement urgentCheckBox;
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -67,4 +70,10 @@ public class QuestionSystemForStudentPage {
     public String getQuestionText() {
         return this.questionText.getText();
     }
+
+    public void becomeUrgent() {
+        this.urgentCheckBox.click();
+    }
+
+
 }

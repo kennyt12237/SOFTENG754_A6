@@ -73,6 +73,6 @@ public class QuestionSystemForStudentStepDefinitions {
 
     @And("Student checks the urgent checkbox")
     public void studentChecksTheUrgentCheckbox() {
-
+        questionSystemForStudentPage.becomeUrgent();
     }
 }
