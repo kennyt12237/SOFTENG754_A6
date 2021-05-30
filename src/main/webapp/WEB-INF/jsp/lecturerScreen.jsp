@@ -22,7 +22,7 @@
 </form>
 
 <form style="display: inline" action="/viewDatabase" method="post">
-    <input type="submit" id="databaseBtn" value="View Saved Questions" />
+    <input type="submit" id="dbQuestionBtn" value="View Saved Questions" />
 </form>
 
 <p style="display:inline; color: #00FF00" name="isMarkedText" id="isMarkedText">${markText}</p>

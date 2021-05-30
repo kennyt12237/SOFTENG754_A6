@@ -42,6 +42,16 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="deleteBtn")
     private WebElement deleteButton;
 
+    @FindBy(how= How.ID, using="storeBtn")
+    private WebElement storeButton;
+
+    @FindBy(how= How.ID, using="dbQuestionBtn")
+    private WebElement dbQuestionBtn;
+
+    @FindBy(how= How.ID, using="dbQuestionText")
+    private WebElement dbQuestionText;
+
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -81,4 +91,17 @@ public class QuestionSystemPage {
     public void clickDeleteButton() {
         deleteButton.click();
     }
+
+    public void clickStoreButton() {
+        storeButton.click();
+    }
+
+    public void clickDBQuestionButton() {
+        dbQuestionBtn.click();
+    }
+
+    public String getDBQuestionText() {
+        return this.dbQuestionText.getText();
+    }
+
 }

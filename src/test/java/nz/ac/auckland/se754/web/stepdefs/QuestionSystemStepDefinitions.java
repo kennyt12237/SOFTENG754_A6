@@ -94,15 +94,17 @@ public class QuestionSystemStepDefinitions {
 
     @And("Lecturer presses the store button")
     public void lecturerPressesTheStoreButton() {
-        
+        questionSystemPage.clickStoreButton();
     }
 
     @When("Lecturer presses View Database")
     public void lecturerPressesViewDatabase() {
-        
+        questionSystemPage.clickDBQuestionButton();
     }
 
     @Then("Lecturer sees question in database {string}")
-    public void lecturerSeesQuestionInDatabase(String arg0) {
+    public void lecturerSeesQuestionInDatabase(String string) {
+        String dbQuestion = questionSystemPage.getDBQuestionText();
+        assertEquals(string, dbQuestion);
     }
 }
