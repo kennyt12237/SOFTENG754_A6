@@ -11,7 +11,6 @@
 
 <p style="display:inline; color: #00FF00" name="questionReceivedText" id="questionReceivedText">${questionReceivedText}</p>
 
-<p style="display:inline; color: #00FF00" name="isFlaggedText" id="isFlaggedText">${flagText}</p>
 <p style="display:inline; color: #00FF00" name="isStoredText" id="isStoredText">${storedText}</p>
 <p style="display:inline" name="dbQuestionsText" id="dbQuestionsText">${dbQuestionsText}</p>
 
@@ -28,6 +27,7 @@
 </form>
 
 <p style="display:inline; color: #00FF00" name="isMarkedText" id="isMarkedText">${markText}</p>
+<p style="display:inline; color: #00FF00" name="isFlaggedText" id="isFlaggedText">${flagText}</p>
 <p name="questionText" id="questionText">${questionText}</p>
 
 <form style="display: inline" action="/markQuestion" method="post">
