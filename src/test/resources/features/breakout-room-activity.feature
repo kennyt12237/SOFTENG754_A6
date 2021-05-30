@@ -16,3 +16,8 @@ Feature:  Check In On Student Sub groups
       | user   |
       | "cpat430" |
       | "akha379" |
+
+    Scenario: The lecturer should be notified when a sub-group has finished
+      Given "akha379" is in a breakout room
+      When  the Finish button is pressed
+      Then the lecturer should see Finished on the breakout room.
