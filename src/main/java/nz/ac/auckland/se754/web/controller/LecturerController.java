@@ -45,7 +45,7 @@ public class LecturerController {
     public String lecturerMarkQuestion(ModelMap model) {
         studentQuestion.markAnswered();
         model.put("questionText", studentQuestion.getAnonymousQuestion());
-        model.put("markText", "marked!!!");
+        model.put("markText", "Marked");
         return "lecturerScreen";
     }
 
@@ -53,7 +53,7 @@ public class LecturerController {
     public String lecturerFlagQuestion(ModelMap model) {
         studentQuestion.setFlagged();
         model.put("questionText", studentQuestion.getAnonymousQuestion());
-        model.put("markText", "flagged!!!");
+        model.put("markText", "Flagged");
         return "lecturerScreen";
     }
 
@@ -68,7 +68,7 @@ public class LecturerController {
     public String lecturerStoreQuestion(ModelMap model) {
         questionStorage.storeQuestion(studentQuestion);
         model.put("questionText", studentQuestion.getAnonymousQuestion());
-        model.put("storedText", "Stored!!!");
+        model.put("storedText", "Stored");
         return "lecturerScreen";
     }
 

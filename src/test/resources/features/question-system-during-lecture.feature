@@ -8,3 +8,8 @@ Feature: Question System during Lecture
 
   Scenario: Lecturer receives anonymous question
     And Lecturer sees anonymous question as "Can you explain interactivity?"
+
+  Scenario:Lecturer marks question read
+  And Lecturer presses mark button
+  Then Lecturer sees anonymous question as "Can you explain interactivity?"
+  And Lecturer sees question as marked "true"
