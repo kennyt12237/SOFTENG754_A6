@@ -29,6 +29,18 @@ public class BreakoutRoomPage {
     @FindBy(how = How.ID, using = "breakoutstatus")
     private WebElement status;
 
+    @FindBy(how = How.CLASS_NAME, using = "topicbtn")
+    private WebElement topicLink;
+
+    @FindBy(how = How.CLASS_NAME, using = "topic")
+    private WebElement topicString;
+
+    @FindBy(how = How.ID, using = "topicname")
+    private WebElement topicTextbox;
+
+    @FindBy(how = How.ID, using = "addtopicbtn")
+    private WebElement addTopicBtn;
+
     public void clickAdd(){
         this.addButton.click();
     }
@@ -48,6 +60,22 @@ public class BreakoutRoomPage {
     public String getStatusString()
     {
         return status.getText();
+    }
+
+    public void clickTopic() {
+        this.topicLink.click();
+    }
+
+    public String getTopic() {
+        return topicString.getText();
+    }
+
+    public void setTopic(String string) {
+        this.topicTextbox.sendKeys(string);
+    }
+
+    public void clickAddTopic() {
+        this.addTopicBtn.click();
     }
 }
 
