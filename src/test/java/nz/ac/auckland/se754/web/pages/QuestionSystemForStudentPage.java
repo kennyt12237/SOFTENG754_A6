@@ -39,6 +39,12 @@ public class QuestionSystemForStudentPage {
     @FindBy(how= How.ID, using="urgent")
     private WebElement urgentCheckBox;
 
+    @FindBy(how= How.ID, using="upvoteBtn")
+    private WebElement upvoteButton;
+
+    @FindBy(how= How.ID, using="upvoteCount")
+    private WebElement upvoteCountText;
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -75,5 +81,11 @@ public class QuestionSystemForStudentPage {
         this.urgentCheckBox.click();
     }
 
+    public void clickUpvoteButton() {
+        this.upvoteButton.click();
+    }
 
+    public String getUpvoteCountText() {
+        return this.upvoteCountText.getText();
+    }
 }

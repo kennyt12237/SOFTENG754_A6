@@ -78,10 +78,13 @@ public class QuestionSystemForStudentStepDefinitions {
 
     @And("Student upvote the question")
     public void studentUpvoteTheQuestion() {
-        
+        questionSystemForStudentPage.clickUpvoteButton();
     }
 
     @Then("Student should see upvote count {string}")
-    public void studentShouldSeeUpvoteCount(String arg0) {
+    public void studentShouldSeeUpvoteCount(String string) {
+        int expUpvoteCount = Integer.parseInt(string);
+        int actUpvoteCount = Integer.parseInt(questionSystemForStudentPage.getUpvoteCountText());
+        assertEquals(expUpvoteCount, actUpvoteCount);
     }
 }
