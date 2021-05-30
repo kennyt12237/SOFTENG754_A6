@@ -75,4 +75,13 @@ public class QuestionSystemForStudentStepDefinitions {
     public void studentChecksTheUrgentCheckbox() {
         questionSystemForStudentPage.becomeUrgent();
     }
+
+    @And("Student upvote the question")
+    public void studentUpvoteTheQuestion() {
+        
+    }
+
+    @Then("Student should see upvote count {string}")
+    public void studentShouldSeeUpvoteCount(String arg0) {
+    }
 }
