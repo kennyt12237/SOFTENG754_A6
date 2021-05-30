@@ -81,6 +81,14 @@ public class CardGameStepDefinitions {
         assertTrue(cardGamePage.getDeckBack()=="Deck Back");
     }
 
+    @Given("there is a deck of cards generated")
+    public void thereIsADeckOfCardsGenerated() {
+    }
+
+    @Then("I should see a hand of {int} cards")
+    public void iShouldSeeAHandOfCards(int arg0) {
+    }
+
    /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
         cardGamePage.setNumberOfPlayers(noPlayers);
