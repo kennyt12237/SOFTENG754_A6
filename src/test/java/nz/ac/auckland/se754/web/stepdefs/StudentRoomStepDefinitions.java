@@ -5,6 +5,7 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.pages.StudentRoomPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,5 +55,10 @@ public class StudentRoomStepDefinitions {
         assertNotEquals(0,studentRoomPage.GetBreakoutRoomCount());
     }
 
+    @When("students {string} joins The breakout room")
+    public void students_joins_the_breakout_room(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 }
