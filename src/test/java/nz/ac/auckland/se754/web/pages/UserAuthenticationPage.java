@@ -83,24 +83,24 @@ public class UserAuthenticationPage {
         this.redirectButton.click();
     }
 
-    public void clickJoinLectureButton() {
-        this.joinLectureButton.click();
-    }
-
-    public String getLectureWelcomeText() {
-        return this.lectureWelcome.getText();
-    }
-
-    public String getLectureName() {
-        return this.softeng754.getText();
-    }
-
-    public void becomeAuthenticated() {
-        this.authenticated.click();
-    }
-
-    public void becomeEnrolled() {
-        this.enrolled.click();
-    }
+//    public void clickJoinLectureButton() {
+//        this.joinLectureButton.click();
+//    }
+//
+//    public String getLectureWelcomeText() {
+//        return this.lectureWelcome.getText();
+//    }
+//
+//    public String getLectureName() {
+//        return this.softeng754.getText();
+//    }
+//
+//    public void becomeAuthenticated() {
+//        this.authenticated.click();
+//    }
+//
+//    public void becomeEnrolled() {
+//        this.enrolled.click();
+//    }
 }
 

@@ -1,4 +1,4 @@
-package nz.ac.auckland.se754.web.testrunner;
+package nz.ac.auckland.se754.web;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -11,6 +11,6 @@ import org.junit.runner.RunWith;
         plugin={"pretty", "html:target/cucumber-reports.html",
                 "de.monochromata.cucumber.report.PrettyReports:target/cucumber",
         },
-        tags = "@authentication-system"
+        tags = "@UserAuthentication"
 )
 public class TestRunner {}
