@@ -39,7 +39,7 @@ public class CardGameStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -81,12 +81,10 @@ public class CardGameStepDefinitions {
         assertTrue(cardGamePage.getDeckBack()=="Deck Back");
     }
 
-    @Given("there is a deck of cards generated")
-    public void thereIsADeckOfCardsGenerated() {
-    }
 
     @Then("I should see a hand of {int} cards")
     public void iShouldSeeAHandOfCards(int arg0) {
+        assertEquals(arg0, cardGamePage.validHand());
     }
 
    /* @Given("There are {int} other students in the game with me")

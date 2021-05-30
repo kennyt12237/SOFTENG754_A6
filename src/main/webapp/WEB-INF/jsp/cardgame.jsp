@@ -22,6 +22,16 @@
             width:200px;
             height:300px;
             margin:10px;
+            float:left;
+        }
+        div.deck{
+            height:400px;
+            margin:10px;
+            overflow:hidden;
+        }
+        div.playerHand{
+            height:400px;
+            overflow:hidden;
         }
     </style>
 </head>
@@ -32,7 +42,6 @@
             <div id="deckBack">
                 <div class="Card">
                     <button id="drawCard">Draw Card</button>
-                    <p>This is where the card back would go</p>
                 </div>
             </div>
             <div id="topCard">
@@ -43,6 +52,18 @@
                     The top card goes here
                 </div>
             </div>
+        </div>
+        Player Hand:
+        <div class="playerHand" id ="playerHand">
+            <%
+                int i=0;
+            %>
+                <c:forEach items="${hand}" var="card">
+                    <div class ="Card" id <%=i%>>
+                        <button>Suit: ${card.wordSuit}, Value: ${card.wordValue}</button>
+                    </div>
+                    <%i++;%>
+                </c:forEach>
         </div>
     </div>
     <button id="start-game-button">Start Game</button>

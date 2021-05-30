@@ -35,6 +35,13 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="exit")
     private WebElement helpExit;
 
+    @FindBy(how=How.ID, using="playerHand")
+    private WebElement hand;
+
+    @FindBy(how=How.ID, using="deck")
+    private WebElement deck;
+
+
 
     public void clickStartGameButton(){
          this.startGameButton.click();
@@ -85,5 +92,26 @@ public class CardGamePage {
 
     public String getDeckBack(){
         return "Deck Back";
+    }
+
+
+    public int validHand(){
+        String hand = this.hand.getText();
+        //return hand;
+        int validCardCounter = 0;
+        for(int i =0; i < hand.length(); i++){
+            if(hand.charAt(i) == 'D' || hand.charAt(i) == 'H' || hand.charAt(i) == 'S' || hand.charAt(i) == 'C'){
+                if(hand.charAt(i+1) =='u'){
+                }
+                else{
+                    validCardCounter++;
+                }
+            }
+        }
+        return validCardCounter;
+        /*if(validCardCounter == numCards){
+            return true;
+        }
+        return false;*/
     }
 }

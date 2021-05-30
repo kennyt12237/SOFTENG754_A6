@@ -13,9 +13,11 @@ public class CardGame {
     private Player gameWinner;
     private int currentPlayer;
     public CardGame(){
-        deck = new Deck(5);
+        deck = new Deck(1);
         placedDeck = new PlacedDeck(deck);
+        players.add(new Player());
         currentPlayer=0;
+        players.get(currentPlayer).getStartingHand(deck);
     }
     public CardGame(List<User> newStudents){
         deck = new Deck(newStudents.size());
