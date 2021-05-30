@@ -78,8 +78,10 @@ public class LecturerController {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (Question q : questions) {
+            if (!stringBuilder.isEmpty()) {
+                stringBuilder.append(",");
+            }
             stringBuilder.append(q.getAnonymousQuestion());
-            stringBuilder.append(",");
         }
 
         String dbQuestionsStr = stringBuilder.toString();

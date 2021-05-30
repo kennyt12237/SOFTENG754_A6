@@ -109,7 +109,7 @@ public class QuestionSystemStepDefinitions {
 
     @Then("Lecturer sees question in database {string}")
     public void lecturerSeesQuestionInDatabase(String string) {
-        String dbQuestion = questionSystemPage.getDBQuestionText();
+        String dbQuestion = questionSystemPage.getDBQuestionsText();
         assertEquals(string, dbQuestion);
     }
 }

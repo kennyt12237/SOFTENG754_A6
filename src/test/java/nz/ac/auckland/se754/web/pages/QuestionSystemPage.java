@@ -51,8 +51,8 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="dbQuestionBtn")
     private WebElement dbQuestionBtn;
 
-    @FindBy(how= How.ID, using="dbQuestionText")
-    private WebElement dbQuestionText;
+    @FindBy(how= How.ID, using="dbQuestionsText")
+    private WebElement dbQuestionsText;
 
 
     public void clickSso() {
@@ -107,7 +107,7 @@ public class QuestionSystemPage {
         dbQuestionBtn.click();
     }
 
-    public String getDBQuestionText() {
-        return this.dbQuestionText.getText();
+    public String getDBQuestionsText() {
+        return this.dbQuestionsText.getText();
     }
 }
