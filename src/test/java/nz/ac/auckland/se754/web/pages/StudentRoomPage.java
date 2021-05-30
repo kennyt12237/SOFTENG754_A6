@@ -11,7 +11,6 @@ import java.util.List;
 public class StudentRoomPage {
 
 
-
     public StudentRoomPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -19,8 +18,15 @@ public class StudentRoomPage {
     @FindBy(how = How.CLASS_NAME, using = "breakoutroom")
     private List<WebElement> breakoutRooms;
 
+    @FindBy(how = How.CLASS_NAME, using = "joinbtn")
+    private WebElement joinButton;
+
     public int GetBreakoutRoomCount() {
         return breakoutRooms.size();
+    }
+
+    public void clickJoin() {
+        this.joinButton.click();
     }
 }
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BreakoutRoomPage {
@@ -16,6 +17,9 @@ public class BreakoutRoomPage {
 
     @FindBy(how = How.CLASS_NAME, using = "breakoutroom")
     private List<WebElement> breakoutRooms;
+
+    @FindBy(how = How.CLASS_NAME, using = "mbkstudent")
+    private List<WebElement> users;
 
     @FindBy(how = How.ID, using = "addbtn")
     private WebElement addButton;
@@ -82,5 +86,13 @@ public class BreakoutRoomPage {
 
     public void clickImport() { this.importBtn.click(); }
 
+    public List<String> getUsers() {
+        ArrayList<String> usr = new ArrayList<>();
+        for(WebElement u :users )
+        {
+          usr.add(u.getText());
+        }
+        return usr;
+    }
 }
 

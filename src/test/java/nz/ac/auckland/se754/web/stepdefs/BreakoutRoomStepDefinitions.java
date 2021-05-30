@@ -132,7 +132,7 @@ public class BreakoutRoomStepDefinitions {
 
     @Then("I should be able to see {string} in the breakout room.")
     public void i_should_be_able_to_see_in_the_breakout_room(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.navigate().refresh();
+        assertTrue(breakoutRoomPage.getUsers().contains(string));
     }
 }

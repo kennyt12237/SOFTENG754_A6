@@ -57,8 +57,8 @@ public class StudentRoomStepDefinitions {
 
     @When("students {string} joins The breakout room")
     public void students_joins_the_breakout_room(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.get("http://localhost:8080/student-room?user=" + string);
+        studentRoomPage.clickJoin();
     }
 
 }

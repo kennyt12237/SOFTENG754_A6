@@ -7,7 +7,9 @@ Feature:  Check In On Student Sub groups
   Scenario Outline: Lecturer Should be able to check users in main room and sub groups
     Given I visit page "/mainroom-lecturer-screen"
     And There is a breakout room
-    When students <user> joins The breakout room
+    When the Lecturer presses the Enable button
+    And students <user> joins The breakout room
+
     Then I should be able to see <user> in the breakout room.
 
     Examples:

@@ -69,7 +69,7 @@
                              </p>
                             <ul>
                              <c:forEach items="${breakoutRoom.userSubGroup}" var="stud">
-                                <li>${stud.userName}</li>
+                                <li >${stud.userName}</li>
                              </c:forEach>
                             </ul>
                         </section>
