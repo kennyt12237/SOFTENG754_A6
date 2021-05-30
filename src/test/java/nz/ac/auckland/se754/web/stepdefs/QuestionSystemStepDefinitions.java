@@ -68,16 +68,22 @@ public class QuestionSystemStepDefinitions {
     @Then("Lecturer sees anonymous question as {string}")
     public void lecturer_sees_anonymous_question_as(String string) {
         String webQuestion = questionSystemPage.getQuestionText();
-        String anonQuestion = "Anonymous: " + string;
-        assertEquals(anonQuestion, webQuestion);
+        assertEquals(string, webQuestion);
     }
 
     @And("Lecturer presses mark button")
     public void lecturerPressesMarkButton() {
-
+        questionSystemPage.clickMarkButton();
     }
 
-    @And("Lecturer sees question as marked {string}")
-    public void lecturerSeesQuestionAsMarked(String string) {
+    @And("Lecturer sees question alert {string}")
+    public void lecturerSeesQuestionAlert(String string) {
+        String markText = questionSystemPage.getMarkText();
+        assertEquals(string, markText);
+    }
+
+    @And("Lecturer presses the flag button")
+    public void lecturerPressesTheFlagButton() {
+
     }
 }
