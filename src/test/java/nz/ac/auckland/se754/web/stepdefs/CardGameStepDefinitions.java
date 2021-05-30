@@ -39,7 +39,7 @@ public class CardGameStepDefinitions {
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class CardGameStepDefinitions {
 
     @Then("I should see the rules of the game")
     public void i_should_see_rules_of_game(){
-        assertEquals(cardGamePage.getRules(), "Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.");
+        assertEquals("Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.",cardGamePage.getRules());
     }
 
     @Given("I have clicked the start game button")
@@ -70,15 +70,17 @@ public class CardGameStepDefinitions {
     }
     @Then("I should see a single card")
     public void i_should_see_single_card(){
-        //Not sure how well this will work, may need to refactor
-        Card testCard = new Card(1, 10);
-        assertTrue(cardGamePage.getTopCard() ==  testCard);
+       assertTrue(cardGamePage.validTopCard());
+
+        //assertEquals("Diamonds", cardGamePage.getTopCardSuit());
+        //assertEquals("10", cardGamePage.getTopCardValue());
     }
     @And("I should see the back of the deck")
     public void i_should_see_back_of_deck(){
         //Also not too sure of this test, but will need to figure things out first.
-        assertTrue(cardGamePage.getDeckBack());
+        assertTrue(cardGamePage.getDeckBack()=="Deck Back");
     }
+
    /* @Given("There are {int} other students in the game with me")
     public void there_are_n_other_players_in_game(int noPlayers){
         cardGamePage.setNumberOfPlayers(noPlayers);

@@ -9,6 +9,9 @@ public class Player {
     private User user;
     private List<Card> hand = new ArrayList<Card>();
     private boolean hasWon;
+    public Player(){
+        this.hasWon = false;
+    }
     public Player(User user){
         this.user = user;
         this.hasWon = false;

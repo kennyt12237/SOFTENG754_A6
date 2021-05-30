@@ -5,12 +5,18 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class CardGame {
     public Deck deck;
     private List<Player> players = new ArrayList<Player>();
     private PlacedDeck placedDeck;
     private Player gameWinner;
     private int currentPlayer;
+    public CardGame(){
+        deck = new Deck(5);
+        placedDeck = new PlacedDeck(deck);
+        currentPlayer=0;
+    }
     public CardGame(List<User> newStudents){
         deck = new Deck(newStudents.size());
         for(int i =0; i<newStudents.size(); i++){
@@ -19,10 +25,10 @@ public class CardGame {
         placedDeck = new PlacedDeck(deck);
         currentPlayer = 0;
 
-        while(!playerHasWon()){
+        /*while(!playerHasWon()){
 
 
-        }
+        }*/
 
 
     }

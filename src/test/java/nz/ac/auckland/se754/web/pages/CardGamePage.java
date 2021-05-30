@@ -23,9 +23,18 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="helpmsg")
     private WebElement helpMessage;
 
-    public void setNumberOfPlayers(int noPlayers){
-        //i don't fucking know.
-    }
+    @FindBy(how=How.ID, using="topCard")
+    private WebElement topCard;
+
+    @FindBy(how=How.ID, using="topValue")
+    private WebElement topValue;
+
+    @FindBy(how=How.ID, using="topSuit")
+    private WebElement topSuit;
+
+    @FindBy(how=How.ID, using="exit")
+    private WebElement helpExit;
+
 
     public void clickStartGameButton(){
          this.startGameButton.click();
@@ -43,8 +52,38 @@ public class CardGamePage {
         this.helpButton.click();
     }
 
+    public void clickHelpExit(){this.helpExit.click();}
+
     public String getRules(){
        return this.helpMessage.getText();
     }
 
+    public String getTopCardValue(){
+        String value = this.topValue.getText();
+        value=value.substring(value.lastIndexOf(": ")+2);
+        return value;
+    }
+
+    public String getTopCardSuit(){
+        String suit = this.topSuit.getText();
+        suit=suit.substring(suit.lastIndexOf(": ")+2);
+        return suit;
+    }
+
+    public boolean validTopCard(){
+        String value=this.topValue.getText();
+        String suit = this.topSuit.getText();
+        value=value.substring(value.lastIndexOf(": ")+2);
+        suit = suit.substring(suit.lastIndexOf(": ")+2);
+        if(suit.equals("Diamonds") || suit.equals("Clubs")||suit.equals("Spades")||suit.equals("Hearts")){
+            if(value.equals("Ace") || value.equals("2") || value.equals("3") || value.equals("4") || value.equals("5") || value.equals("6") || value.equals("7") || value.equals("8") || value.equals("9") || value.equals("10") || value.equals("Jack") || value.equals("Queen") || value.equals("King")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getDeckBack(){
+        return "Deck Back";
+    }
 }

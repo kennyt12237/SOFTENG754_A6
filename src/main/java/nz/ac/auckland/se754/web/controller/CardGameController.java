@@ -16,21 +16,15 @@ import java.util.List;
 
 @Controller
 public class CardGameController {
-/*
     @Autowired
-    CardGame service;*/
+    CardGame service = new CardGame();
 
     @RequestMapping(value="/CardGame", method=RequestMethod.GET)
     public String showCardGamePage(ModelMap model){
+        model.put("Suit", service.getPlacedDeck().getTopCard().getWordSuit());
+        model.put("Value", service.getPlacedDeck().getTopCard().getWordValue());
+        model.put("HelpMessage", "Last Card is a game in which each player takes turns placing cards that match the suit or value. You can place multiple cards at the same time, so long as they match value. If you're unable to place any cards, you must pick up 1. Whoever empties their hand first wins the game.");
         return "cardgame";
     }
 
-    /*
-    @RequestMapping(value="/CardGame", method = RequestMethod.POST)
-    public CardGame createNewCardGame(){
-        List<User> students = new ArrayList<>();
-        students.add(null);
-        CardGame cardGame = new CardGame(students);
-        return cardGame;
-    }*/
 }

@@ -14,8 +14,42 @@ public class Card {
     public int getSuit(){
         return this.suit;
     }
+    public String getWordSuit(){
+        if(this.getSuit()==0){
+            return "Diamonds";
+        }
+        else if(this.getSuit()==1){
+            return "Hearts";
+        }
+        else if (this.getSuit() == 2){
+            return "Clubs";
+        }
+        else{
+            return "Spades";
+        }
+    }
     public int getValue(){
         return this.value;
+    }
+    public String getWordValue(){
+        int valToString = this.getValue();
+        if(valToString > 9|| valToString == 0){
+            if(valToString == 0){
+                return "Ace";
+            }
+            else if(valToString==10){
+                return "Jack";
+            }
+            else if(valToString==11){
+                return "Queen";
+            }
+            else{
+                return "King";
+            }
+        }
+        else{
+            return Integer.toString(this.getValue()+1);
+        }
     }
 
 }
