@@ -8,7 +8,7 @@ import java.util.Arrays;
 @Service
 public class MainRoom {
 
-    ArrayList<User> userlist = new ArrayList<>(Arrays.asList(new User("cpat430"), new User("akha379"), new User("abc123"), new User("sat230"), new User("has379")));
+    ArrayList<User> userlist = new ArrayList<>(Arrays.asList(new User("Lecturer"),new User("cpat430"), new User("akha379"), new User("abc123"), new User("sat230"), new User("has379")));
     public UserGroup maingroup = new UserGroup(userlist);
 
 }
