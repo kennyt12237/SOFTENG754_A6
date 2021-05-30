@@ -119,4 +119,15 @@ public class BreakoutRoomStepDefinitions {
         breakoutRoomPage.clickImport();
     }
 
+    @Given("Lecturer visit page {string}")
+    public void lecturer_visit_page(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("the Lecturer presses the Enable button")
+    public void the_lecturer_presses_the_enable_button() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 }
