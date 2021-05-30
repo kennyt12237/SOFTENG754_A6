@@ -39,6 +39,9 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="flagBtn")
     private WebElement flagButton;
 
+    @FindBy(how= How.ID, using="deleteBtn")
+    private WebElement deleteButton;
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -73,5 +76,9 @@ public class QuestionSystemPage {
 
     public void clickFlagButton() {
         flagButton.click();
+    }
+    
+    public void clickDeleteButton() {
+        deleteButton.click();
     }
 }
