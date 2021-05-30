@@ -44,15 +44,14 @@ public class StudentRoomStepDefinitions {
     }
 
     @Given("I visit page {string} as {string}")
-    public void i_visit_page_as(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void i_visit_page_as(String link, String userName) {
+        driver.get("http://localhost:8080" + link +"?user=" + userName);
     }
 
     @Then("I should see breakout rooms open")
     public void i_should_see_breakout_rooms_open() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.navigate().refresh();
+        assertNotEquals(0,studentRoomPage.GetBreakoutRoomCount());
     }
 
 

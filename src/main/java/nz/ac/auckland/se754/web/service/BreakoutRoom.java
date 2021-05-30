@@ -50,6 +50,14 @@ public class BreakoutRoom {
         return userSubGroup;
     }
 
+    public Boolean findUser(User user) {
+        if (userSubGroup.contains(user)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //Add a new user to the break out room
     public Boolean AddNewUser(User student) {
         if (userSubGroup.size() < maxGroupSize) {

@@ -45,7 +45,22 @@ public class UserGroup {
 
         }
     }
+    public User findUser(String userString) {
+        User usr = userList.stream()
+                .filter(user -> userString.equals(user.getUserName()))
+                .findAny()
+                .orElse(null);
+        return usr;
+    }
 
+    public BreakoutRoom findBreakoutRoom(String id) {
+        for (BreakoutRoom br : breakoutRooms) {
+            if (br.getId().equals(UUID.fromString(id))) {
+                return br;
+            }
+        }
+        return null;
+    }
     public Boolean getBreakoutRoomsEnabled() {
         return isBreakoutRoomsEnabled;
     }
@@ -74,9 +89,15 @@ public class UserGroup {
         return userList;
     }
 
-    public void JoinBreakoutRoom(User user, BreakoutRoom room) {
-        if (room.AddNewUser(user)) {
-            userList.remove(user);
+    public void joinBreakoutRoom(User user, BreakoutRoom room) {
+        if(room.findUser(user)) {
+
+        } else {
+            if(userList.contains(user)) {
+                if (room.AddNewUser(user)) {
+                    userList.remove(user);
+                }
+            }
         }
     }
 

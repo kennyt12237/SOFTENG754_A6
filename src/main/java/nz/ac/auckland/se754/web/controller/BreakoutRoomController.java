@@ -71,11 +71,35 @@ public class BreakoutRoomController {
         return "mainroom-lecturer-screen";
     }
 
+    @RequestMapping(value = "/student-room", method = RequestMethod.GET)
+    public String joinStudent(ModelMap model, @RequestParam(required = false) String id, @RequestParam String user) {
+        if (id == null) {
+            model.put("username", user);
+            loadStudentPage(model);
+            return "student-room";
+        } else {
+            service.maingroup.joinBreakoutRoom(service.maingroup.findUser(user), service.maingroup.findBreakoutRoom(id));
+            model.put("username", user);
+            model.put("idnum", id);
+            loadStudentPage(model);
+            return "student-room";
+        }
+    }
     public void LoadPage(ModelMap model) {
         if (service.maingroup.getBreakoutRoomsEnabled()) {
             model.put("lblEnabled", "Breakout Rooms Enabled");
         } else {
             model.put("lblEnabled", "Breakout Rooms Disabled");
+        }
+        model.put("students", service.maingroup.GetStudents());
+        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
+    }
+
+    public void loadStudentPage(ModelMap model) {
+        if (service.maingroup.getBreakoutRoomsEnabled()) {
+            model.put("lblEnabled", "true");
+        } else {
+            model.put("lblEnabled", "false");
         }
         model.put("students", service.maingroup.GetStudents());
         model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
