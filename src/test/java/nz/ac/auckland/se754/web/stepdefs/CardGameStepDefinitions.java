@@ -97,6 +97,27 @@ public class CardGameStepDefinitions {
         assertEquals(arg0, cardGamePage.validHand());
     }
 
+    @Given("I have a card with a value of <myValue> and a suit of <mySuit> in my hand")
+    public void iHaveACardWithAValueOfMyValueAndASuitOfMySuitInMyHand() {
+        
+    }
+
+    @And("the top card has a value of <value> and suit of <suit>")
+    public void theTopCardHasAValueOfValueAndSuitOfSuit() {
+    }
+
+    @When("I try to place the card")
+    public void iTryToPlaceTheCard() {
+    }
+
+    @Then("the card should no longer be in my hand")
+    public void theCardShouldNoLongerBeInMyHand() {
+    }
+
+    @And("the top card should have a value of <myValue> and a suit of <mySuit>")
+    public void theTopCardShouldHaveAValueOfMyValueAndASuitOfMySuit() {
+    }
+
 
 
    /* @Given("There are {int} other students in the game with me")

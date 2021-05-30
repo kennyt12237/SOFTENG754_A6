@@ -18,13 +18,28 @@ Feature: CardGame
     Given I have clicked the start game button
     Then I should see a single card
 
-    Scenario: Seeing your own hand
-      Then I should see a hand of 7 cards
+  Scenario: Seeing your own hand
+    Then I should see a hand of 7 cards
 
 
-    Scenario: Drawing a card
-      Given I have a hand of 7 cards
-      When I have clicked the draw card button
-      Then I should have a hand of 8 cards
+  Scenario: Drawing a card
+    Given I have a hand of 7 cards
+    When I have clicked the draw card button
+    Then I should have a hand of 8 cards
+
+  Scenario Outline: Placing a card
+    Given I have a card with a value of <myValue> and a suit of <mySuit> in my hand
+    And the top card has a value of <value> and suit of <suit>
+    When I try to place the card
+    Then the card should no longer be in my hand
+    And the top card should have a value of <myValue> and a suit of <mySuit>
+    Examples:
+    |myValue|mySuit|value|suit|
+    |Queen  |Diamonds|Queen|Clubs|
+    |10     |Spades  |Jack |Spade|
+    |Ace    |Hearts  |Ace  |Hearts|
+
+
+
 
 
