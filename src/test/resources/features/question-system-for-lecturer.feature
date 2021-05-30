@@ -1,4 +1,4 @@
-@Question-System-For-Lecturer
+@QuestionSystemForLecturer
 Feature: Question System For Lecturer during Lecture
 
   Background:
@@ -12,12 +12,12 @@ Feature: Question System For Lecturer during Lecture
   Scenario: Lecturer marks question read
     And Lecturer presses mark button
     Then Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
-    And Lecturer sees question alert "Marked"
+    And Lecturer sees question mark alert "Marked"
 
   Scenario: Lecturer flags question
     And Lecturer presses the flag button
     Then Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
-    And Lecturer sees question alert "Flagged"
+    And Lecturer sees question flag alert "Flagged"
 
   Scenario: Lecturer deletes question
     And Lecturer presses the delete button
@@ -26,7 +26,7 @@ Feature: Question System For Lecturer during Lecture
   Scenario: Lecturer flags and deletes question
     And Lecturer presses the flag button
     Then Lecturer sees anonymous question as "Anonymous: Can you explain it again?"
-    And Lecturer sees question alert "Flagged"
+    And Lecturer sees question flag alert "Flagged"
     When Lecturer presses the delete button
     Then Lecturer sees anonymous question as ""
 

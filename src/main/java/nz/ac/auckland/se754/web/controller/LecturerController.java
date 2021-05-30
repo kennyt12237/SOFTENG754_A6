@@ -48,7 +48,7 @@ public class LecturerController {
     @RequestMapping(path = "/flagQuestion", method = RequestMethod.POST)
     public String lecturerFlagQuestion(ModelMap model) {
         model.put("questionText", studentQuestion.getAnonymousQuestion());
-        model.put("markText", "Flagged");
+        model.put("flagText", "Flagged");
         return "lecturerScreen";
     }
 

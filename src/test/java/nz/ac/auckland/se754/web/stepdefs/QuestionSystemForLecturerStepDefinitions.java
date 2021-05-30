@@ -21,7 +21,7 @@ public class QuestionSystemForLecturerStepDefinitions {
     private WebDriver driver;
     private QuestionSystemForLecturerPage questionSystemForLecturerPage;
 
-    @Before
+    @Before("@QuestionSystemForLecturer")
     public void setup() {
         if (System.getProperty("os.name").startsWith("Windows")) {
             System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
@@ -80,8 +80,8 @@ public class QuestionSystemForLecturerStepDefinitions {
         questionSystemForLecturerPage.clickMarkButton();
     }
 
-    @And("Lecturer sees question alert {string}")
-    public void lecturer_sees_question_alert(String string) {
+    @And("Lecturer sees question mark alert {string}")
+    public void lecturer_sees_question_mark_alert(String string) {
         String markText = questionSystemForLecturerPage.getMarkText();
         assertEquals(string, markText);
     }
@@ -89,6 +89,12 @@ public class QuestionSystemForLecturerStepDefinitions {
     @And("Lecturer presses the flag button")
     public void lecturer_presses_the_flag_button() {
         questionSystemForLecturerPage.clickFlagButton();
+    }
+
+    @And("Lecturer sees question flag alert {string}")
+    public void lecturerSeesQuestionFlagAlert(String string) {
+        String flagText = questionSystemForLecturerPage.getFlaggedText();
+        assertEquals(string, flagText);
     }
 
     @And("Lecturer presses the delete button")

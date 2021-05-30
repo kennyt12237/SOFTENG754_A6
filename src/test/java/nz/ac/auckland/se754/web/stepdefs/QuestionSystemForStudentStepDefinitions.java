@@ -21,7 +21,7 @@ public class QuestionSystemForStudentStepDefinitions {
     private WebDriver driver;
     private QuestionSystemForStudentPage questionSystemForStudentPage;
 
-    @Before
+    @Before("@QuestionSystemForStudent")
     public void setup() {
         if (System.getProperty("os.name").startsWith("Windows")) {
             System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");

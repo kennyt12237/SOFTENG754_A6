@@ -1,4 +1,4 @@
-@Question-System-For-Student
+@QuestionSystemForStudent
 Feature: Question System for students during Lecture
 
   Background:

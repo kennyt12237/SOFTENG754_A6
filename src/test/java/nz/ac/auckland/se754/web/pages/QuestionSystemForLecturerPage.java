@@ -39,6 +39,9 @@ public class QuestionSystemForLecturerPage {
     @FindBy(how= How.ID, using="flagBtn")
     private WebElement flagButton;
 
+    @FindBy(how= How.ID, using="isFlaggedText")
+    private WebElement flagText;
+
     @FindBy(how= How.ID, using="deleteBtn")
     private WebElement deleteButton;
 
@@ -90,7 +93,11 @@ public class QuestionSystemForLecturerPage {
     public void clickFlagButton() {
         flagButton.click();
     }
-    
+
+    public String getFlaggedText() {
+        return this.flagText.getText();
+    }
+
     public void clickDeleteButton() {
         deleteButton.click();
     }
