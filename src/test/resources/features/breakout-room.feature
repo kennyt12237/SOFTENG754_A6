@@ -20,6 +20,18 @@ Feature:  Split students into smaller groups
     When I press the Enable button
     Then I should see "Breakout Rooms Enabled"
 
+  Scenario Outline: Lecturer Enables Breakout Rooms
+    Given I visit page "/student-room" as <student>
+    And  Lecturer visit page "/mainroom-lecturer-screen"
+    And There is a breakout room
+    When the Lecturer presses the Enable button
+    Then I should see breakout rooms open
+
+    Examples:
+      | student   |
+      | "cpat430" |
+      | "akha379" |
+
   Scenario: Lecturer Disables Breakout Rooms
     Given I visit page "/mainroom-lecturer-screen"
     When I press the Disable button
