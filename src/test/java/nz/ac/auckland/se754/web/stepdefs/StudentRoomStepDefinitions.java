@@ -61,4 +61,16 @@ public class StudentRoomStepDefinitions {
         studentRoomPage.clickJoin();
     }
 
+    @Given("{string} is in a breakout room")
+    public void is_in_a_breakout_room(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("the Finish button is pressed")
+    public void the_finish_button_is_pressed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 }

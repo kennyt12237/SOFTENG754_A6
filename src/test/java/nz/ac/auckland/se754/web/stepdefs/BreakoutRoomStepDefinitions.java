@@ -139,4 +139,10 @@ public class BreakoutRoomStepDefinitions {
         driver.navigate().refresh();
         assertTrue(breakoutRoomPage.getUsers().contains(string));
     }
+
+    @Then("the lecturer should see Finished on the breakout room.")
+    public void the_lecturer_should_see_finished_on_the_breakout_room() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 }
