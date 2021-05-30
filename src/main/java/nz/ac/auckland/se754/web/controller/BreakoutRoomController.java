@@ -71,6 +71,13 @@ public class BreakoutRoomController {
         return "mainroom-lecturer-screen";
     }
 
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "reset")
+    public String ResetGroups(ModelMap model) {
+        service = new MainRoom();
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+    }
+
     @RequestMapping(value = "/student-room", method = RequestMethod.GET)
     public String joinStudent(ModelMap model, @RequestParam(required = false) String id, @RequestParam String user) {
         if (id == null) {

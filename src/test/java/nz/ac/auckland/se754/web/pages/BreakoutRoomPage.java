@@ -48,6 +48,9 @@ public class BreakoutRoomPage {
     @FindBy(how = How.ID, using = "importcanvas")
     private WebElement importBtn;
 
+    @FindBy(how = How.ID, using = "reset")
+    private WebElement resetBtn;
+
     public void clickAdd() {
         this.addButton.click();
     }
@@ -93,6 +96,10 @@ public class BreakoutRoomPage {
           usr.add(u.getText());
         }
         return usr;
+    }
+
+    public void clickReset(){
+        this.resetBtn.click();
     }
 }
 

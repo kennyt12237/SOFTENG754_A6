@@ -28,6 +28,7 @@
         <input type="submit" id="enablebtn" name="enablebk" value="Enable" />
         <input type="submit" id="disablebtn" name="disablebk" value="Disable" />
         <input type="submit" id="importcanvas" name="importcanvas" value="Import" />
+        <input type="submit" id="reset" name="reset" value="Reset" />
     </form>
 
     <section id="sidebar">

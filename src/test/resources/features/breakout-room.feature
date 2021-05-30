@@ -12,8 +12,8 @@ Feature:  Split students into smaller groups
     Examples:
       | num1 | num2 |
       | 1    | 1    |
-      | 1    | 2    |
-      | 1    | 3    |
+      | 2    | 2    |
+      | 3    | 3    |
 
   Scenario: Lecturer Enables Breakout Rooms
     Given I visit page "/mainroom-lecturer-screen"

@@ -8,7 +8,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.pages.BreakoutRoomPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import java.util.concurrent.TimeUnit;
 
@@ -52,6 +55,7 @@ public class BreakoutRoomStepDefinitions {
     @Given("I visit page {string}")
     public void i_visit_page(String string) {
         driver.get("http://localhost:8080" + string);
+        breakoutRoomPage.clickReset();
     }
 
     @When("I press the Add button {int} times")
