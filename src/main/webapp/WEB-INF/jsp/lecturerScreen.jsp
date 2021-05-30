@@ -10,7 +10,6 @@
 <p style="color: #ff0000" id="error-message">${errorMessage}</p>
 
 <p style="display:inline; color: #00FF00" name="questionReceivedText" id="questionReceivedText">${questionReceivedText}</p>
-<p style="display:inline; color: #00FF00" name="isStoredText" id="isStoredText">${storedText}</p>
 <p style="display:inline" name="dbQuestionsText" id="dbQuestionsText">${dbQuestionsText}</p>
 
 <form action="/receiveQuestion" method="post">
@@ -21,14 +20,16 @@
     <input type="submit" id="viewBtn" value="View Question" ${questionText.length() > 0 ? 'hidden' : ''}/>
 </form>
 
-<form style="display: inline" action="/viewDatabase" method="post">
+<form action="/viewDatabase" method="post">
     <input type="submit" id="dbQuestionBtn" value="View Saved Questions" />
 </form>
 
+<p style="display:inline" name="questionText" id="questionText">${questionText}</p>
 <p style="display:inline; color: #00FF00" name="isMarkedText" id="isMarkedText">${markText}</p>
 <p style="display:inline; color: #00FF00" name="isFlaggedText" id="isFlaggedText">${flagText}</p>
-<p name="questionText" id="questionText">${questionText}</p>
+<p style="display:inline; color: #00FF00" name="isStoredText" id="isStoredText">${storedText}</p>
 
+<br />
 <form style="display: inline" action="/markQuestion" method="post">
     <input type="submit" id="markBtn" value="Mark Question" ${questionText.length() > 0 ? '' : 'hidden'}/>
 </form>
