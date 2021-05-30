@@ -44,9 +44,8 @@ public class BreakoutRoomStepDefinitions {
         driver.quit();
     }
 
-    @Given("the students {string} and {string} and {string} are in the mainroom")
-    public void the_students_and_and_are_in_the_mainroom(String string, String string2, String string3) {
-
+    @Given("the students {string} and {string} and {string}  and {string} and {string} are in the mainroom")
+    public void the_students_and_and_and_and_are_in_the_mainroom(String string, String string2, String string3, String string4, String string5) {
     }
 
     @Given("I visit page {string}")

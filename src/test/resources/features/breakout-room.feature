@@ -2,7 +2,7 @@
 Feature:  Split students into smaller groups
 
   Background: I have a couple of students in the main room
-    Given the students "cpat430" and "akha379" and "abc123" are in the mainroom
+    Given the students "cpat430" and "akha379" and "abc123"  and "sat230" and "has379" are in the mainroom
 
   Scenario Outline: Lecturer Opens Breakout Rooms
     Given I visit page "/mainroom-lecturer-screen"
