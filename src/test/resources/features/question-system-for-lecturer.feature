@@ -1,5 +1,5 @@
-@Question-System
-Feature: Question System during Lecture
+@Question-System-For-Lecturer
+Feature: Question System For Lecturer during Lecture
 
   Background:
     Given lecturer visits "/login" and then logs in
