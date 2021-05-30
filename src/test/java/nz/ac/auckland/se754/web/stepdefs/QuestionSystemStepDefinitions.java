@@ -91,4 +91,18 @@ public class QuestionSystemStepDefinitions {
     public void lecturerPressesTheDeleteButton() {
         questionSystemPage.clickDeleteButton();
     }
+
+    @And("Lecturer presses the store button")
+    public void lecturerPressesTheStoreButton() {
+        
+    }
+
+    @When("Lecturer presses View Database")
+    public void lecturerPressesViewDatabase() {
+        
+    }
+
+    @Then("Lecturer sees question in database {string}")
+    public void lecturerSeesQuestionInDatabase(String arg0) {
+    }
 }
