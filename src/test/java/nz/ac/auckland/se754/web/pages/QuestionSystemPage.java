@@ -30,6 +30,15 @@ public class QuestionSystemPage {
     @FindBy(how= How.ID, using="questionText")
     private WebElement questionText;
 
+    @FindBy(how= How.ID, using="markBtn")
+    private WebElement markButton;
+
+    @FindBy(how= How.ID, using="isMarkedText")
+    private WebElement markText;
+
+    @FindBy(how= How.ID, using="flagBtn")
+    private WebElement flagButton;
+
     public void clickSso() {
         this.ssoButton.click();
     }
@@ -52,5 +61,17 @@ public class QuestionSystemPage {
 
     public String getQuestionText() {
         return this.questionText.getText();
+    }
+
+    public void clickMarkButton() {
+        markButton.click();
+    }
+
+    public String getMarkText() {
+        return this.markText.getText();
+    }
+
+    public void clickFlagButton() {
+        flagButton.click();
     }
 }
