@@ -3,6 +3,7 @@ package nz.ac.auckland.se754.web.stepdefs;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -54,15 +55,19 @@ public class QuestionSystemForStudentStepDefinitions {
         questionSystemForStudentPage.clickJoinLectureButton();
     }
 
-    @When("Student asks question {string}")
-    public void studentAsksQuestion(String string) {
-        questionSystemForStudentPage.insertQuestion(string);
-        questionSystemForStudentPage.clickAskQuestionButton();
-    }
-
     @Then("Student should see anonymous question {string}")
     public void studentShouldSeeAnonymousQuestion(String string) {
         String questionTxt = questionSystemForStudentPage.getQuestionText();
         assertEquals(string, questionTxt);
+    }
+
+    @When("Student writes question {string}")
+    public void studentWritesQuestion(String string) {
+        questionSystemForStudentPage.insertQuestion(string);
+    }
+
+    @And("Student presses ask question button")
+    public void studentPressesAskQuestionButton() {
+        questionSystemForStudentPage.clickAskQuestionButton();
     }
 }
