@@ -52,7 +52,7 @@ public class QuestionSystemForLecturerStepDefinitions {
 
 
     @Given("lecturer visits {string} and then logs in")
-    public void lecturerVisitsAndThenLogsIn(String string) {
+    public void lecturer_visits_and_then_logs_in(String string) {
         driver.get("http://localhost:8080" + string);
         questionSystemForLecturerPage.clickSso();
         questionSystemForLecturerPage.clickRedirectToLecture();
@@ -76,43 +76,43 @@ public class QuestionSystemForLecturerStepDefinitions {
     }
 
     @And("Lecturer presses mark button")
-    public void lecturerPressesMarkButton() {
+    public void lecturer_presses_mark_button() {
         questionSystemForLecturerPage.clickMarkButton();
     }
 
     @And("Lecturer sees question alert {string}")
-    public void lecturerSeesQuestionAlert(String string) {
+    public void lecturer_sees_question_alert(String string) {
         String markText = questionSystemForLecturerPage.getMarkText();
         assertEquals(string, markText);
     }
 
     @And("Lecturer presses the flag button")
-    public void lecturerPressesTheFlagButton() {
+    public void lecturer_presses_the_flag_button() {
         questionSystemForLecturerPage.clickFlagButton();
     }
 
     @And("Lecturer presses the delete button")
-    public void lecturerPressesTheDeleteButton() {
+    public void lecturer_presses_the_delete_button() {
         questionSystemForLecturerPage.clickDeleteButton();
     }
 
     @And("Lecturer presses the store button")
-    public void lecturerPressesTheStoreButton() {
+    public void lecturer_presses_the_store_button() {
         questionSystemForLecturerPage.clickStoreButton();
     }
 
     @And("Lecturer sees question database alert {string}")
-    public void lecturerSeesQuestionDatabaseAlert(String string) {
+    public void lecturer_sees_question_database_alert(String string) {
         questionSystemForLecturerPage.getStoredText();
     }
 
     @When("Lecturer presses View Database")
-    public void lecturerPressesViewDatabase() {
+    public void lecturer_presses_view_database() {
         questionSystemForLecturerPage.clickDBQuestionButton();
     }
 
     @Then("Lecturer sees question in database {string}")
-    public void lecturerSeesQuestionInDatabase(String string) {
+    public void lecturer_sees_question_in_database(String string) {
         String dbQuestion = questionSystemForLecturerPage.getDBQuestionsText();
         assertEquals(string, dbQuestion);
     }

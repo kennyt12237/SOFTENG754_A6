@@ -50,45 +50,45 @@ public class QuestionSystemForStudentStepDefinitions {
     }
 
     @Then("Student should see anonymous question {string}")
-    public void studentShouldSeeAnonymousQuestion(String string) {
+    public void student_should_see_anonymous_question(String string) {
         String questionTxt = questionSystemForStudentPage.getQuestionText();
         assertEquals(string, questionTxt);
     }
 
     @When("Student writes question {string}")
-    public void studentWritesQuestion(String string) {
+    public void student_writes_question(String string) {
         questionSystemForStudentPage.insertQuestion(string);
     }
 
     @And("Student presses ask question button")
-    public void studentPressesAskQuestionButton() {
+    public void student_presses_ask_question_button() {
         questionSystemForStudentPage.clickAskQuestionButton();
     }
 
     @And("Student checks the urgent checkbox")
-    public void studentChecksTheUrgentCheckbox() {
+    public void student_checks_the_urgent_checkbox() {
         questionSystemForStudentPage.becomeUrgent();
     }
 
     @And("Student upvote the question")
-    public void studentUpvoteTheQuestion() {
+    public void student_upvote_the_question() {
         questionSystemForStudentPage.clickUpvoteButton();
     }
 
     @Then("Student should see upvote count {string}")
-    public void studentShouldSeeUpvoteCount(String string) {
+    public void student_should_see_upvote_count(String string) {
         int expUpvoteCount = Integer.parseInt(string);
         int actUpvoteCount = Integer.parseInt(questionSystemForStudentPage.getUpvoteCountText());
         assertEquals(expUpvoteCount, actUpvoteCount);
     }
 
     @Given("Student visits the site {string}")
-    public void studentVisitsTheSite(String string) {
+    public void student_visits_the_site(String string) {
         driver.get("http://localhost:8080" + string);
     }
 
     @And("Student logs in proceeding to lecture")
-    public void studentLogsInProceedingToLecture() {
+    public void student_logs_in_proceeding_to_lecture() {
         questionSystemForStudentPage.clickSso();
         questionSystemForStudentPage.clickRedirectToLecture();
         questionSystemForStudentPage.becomeAuthenticated();
