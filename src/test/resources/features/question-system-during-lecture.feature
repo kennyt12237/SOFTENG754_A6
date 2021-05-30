@@ -18,3 +18,7 @@ Feature: Question System during Lecture
     And Lecturer presses the flag button
     Then Lecturer sees anonymous question as "Anonymous: Can you explain interactivity?"
     And Lecturer sees question alert "Flagged"
+
+  Scenario: Lecturer deletes question
+    And Lecturer presses the delete button
+    Then Lecturer sees anonymous question as ""
