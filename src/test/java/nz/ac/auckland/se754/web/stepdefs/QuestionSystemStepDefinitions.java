@@ -72,4 +72,12 @@ public class QuestionSystemStepDefinitions {
         assertEquals(anonQuestion, webQuestion);
     }
 
+    @And("Lecturer presses mark button")
+    public void lecturerPressesMarkButton() {
+
+    }
+
+    @And("Lecturer sees question as marked {string}")
+    public void lecturerSeesQuestionAsMarked(String string) {
+    }
 }
