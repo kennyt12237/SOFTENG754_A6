@@ -26,10 +26,42 @@ public class CardGameController {
         loadPage(model);
         return "cardgame";
     }
-
-    @RequestMapping(value="/CardGame", method=RequestMethod.POST)
+    @RequestMapping(value="/CardGame", method=RequestMethod.POST, params="drawCard")
     public String drawCardFromDeck(ModelMap model){
         service.getPlayers().get(service.getCurrentPlayer()).drawCard(service.getDeck());
+        service.deckRefresh();
+
+        loadPage(model);
+        return "cardgame";
+    }
+
+    @RequestMapping(value="/CardGame", method=RequestMethod.POST, params="addTestCardsHand")
+    public String addTestCardToHand(ModelMap model, @RequestParam String testCardValue, @RequestParam String testCardSuit){
+        int testCardV = Integer.valueOf(testCardValue);
+        int testCardS = Integer.valueOf(testCardSuit);
+        Card testCard = new Card(testCardS, testCardV);
+        service.getPlayers().get(service.getCurrentPlayer()).getHand().add(0, testCard);
+        loadPage(model);
+        return "cardgame";
+    }
+
+    @RequestMapping(value="/CardGame", method=RequestMethod.POST, params="addTestCardsTop")
+    public String addTestCardToTop(ModelMap model, @RequestParam String testTopCardValue, @RequestParam String testTopCardSuit){
+        int testTopCardV = Integer.valueOf(testTopCardValue);
+        int testTopCardS = Integer.valueOf(testTopCardSuit);
+        Card testTopCard = new Card(testTopCardS,testTopCardV);
+        service.getPlacedDeck().placeCard(testTopCard);
+        loadPage(model);
+        return "cardgame";
+    }
+
+    @RequestMapping(value="/CardGame", method=RequestMethod.POST)
+    public String placeCardFromHand(ModelMap model, @RequestParam String cardid){
+
+        int cardLocation = Integer.parseInt(cardid);
+
+        service.getPlayers().get(service.getCurrentPlayer()).playCard(service.getPlayers().get(service.getCurrentPlayer()).getHand().get(cardLocation), service.getPlacedDeck());
+
 
         loadPage(model);
         return "cardgame";

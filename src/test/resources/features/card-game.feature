@@ -34,10 +34,10 @@ Feature: CardGame
     Then the card should no longer be in my hand
     And the top card should have a value of <myValue> and a suit of <mySuit>
     Examples:
-    |myValue|mySuit|value|suit|
-    |Queen  |Diamonds|Queen|Clubs|
-    |10     |Spades  |Jack |Spade|
-    |Ace    |Hearts  |Ace  |Hearts|
+      |myValue|mySuit|value|suit|
+      |"Queen"  |"Diamonds"|"Queen"|"Clubs"|
+      |"10"     |"Spades"  |"Jack" |"Spade"|
+      |"Ace"    |"Hearts"  |"Ace"  |"Hearts"|
 
 
 

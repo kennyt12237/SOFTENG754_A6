@@ -22,6 +22,7 @@ public class Deck {
         shuffleDeck();
 
     }
+
     public Card getTopCard(){
         int cardLocation = deck.size()-1;
         Card topCard = deck.get(cardLocation);

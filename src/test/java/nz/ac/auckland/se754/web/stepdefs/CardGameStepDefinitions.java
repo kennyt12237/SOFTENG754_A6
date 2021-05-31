@@ -23,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CardGameStepDefinitions {
     private WebDriver driver;
     private CardGamePage cardGamePage;
+    private int handSize;
     @Before
     public void setup() {
         //need to change win to macos when pushing and remove .exe
@@ -71,9 +72,6 @@ public class CardGameStepDefinitions {
     @Then("I should see a single card")
     public void i_should_see_single_card(){
        assertTrue(cardGamePage.validTopCard());
-
-        //assertEquals("Diamonds", cardGamePage.getTopCardSuit());
-        //assertEquals("10", cardGamePage.getTopCardValue());
     }
 
 
@@ -85,6 +83,7 @@ public class CardGameStepDefinitions {
     @Given("I have a hand of {int} cards")
     public void iHaveAHandOfCards(int arg0) {
         assertEquals(arg0, cardGamePage.validHand());
+        handSize = cardGamePage.validHand();
     }
 
     @When("I have clicked the draw card button")
@@ -95,49 +94,39 @@ public class CardGameStepDefinitions {
     @Then("I should have a hand of {int} cards")
     public void iShouldHaveAHandOfCards(int arg0) {
         assertEquals(arg0, cardGamePage.validHand());
+        handSize=cardGamePage.validHand();
+
     }
 
-    @Given("I have a card with a value of <myValue> and a suit of <mySuit> in my hand")
-    public void iHaveACardWithAValueOfMyValueAndASuitOfMySuitInMyHand() {
-        
+
+    @Given("I have a card with a value of {string} and a suit of {string} in my hand")
+    public void iHaveACardWithAValueOfMyValueAndASuitOfMySuitInMyHand(String myValue, String mySuit) {
+        cardGamePage.addTestCardToHand(myValue, mySuit);
+        handSize=cardGamePage.validHand();
     }
 
-    @And("the top card has a value of <value> and suit of <suit>")
-    public void theTopCardHasAValueOfValueAndSuitOfSuit() {
+    @And("the top card has a value of {string} and suit of {string}")
+    public void theTopCardHasAValueOfValueAndSuitOfSuit(String value, String suit) {
+        cardGamePage.addTestCardToTopDeck(value, suit);
     }
 
     @When("I try to place the card")
     public void iTryToPlaceTheCard() {
+        cardGamePage.clickTestCard();
     }
 
     @Then("the card should no longer be in my hand")
     public void theCardShouldNoLongerBeInMyHand() {
+        handSize = cardGamePage.validHand();
+        assertEquals(handSize, cardGamePage.validHand());
     }
 
-    @And("the top card should have a value of <myValue> and a suit of <mySuit>")
-    public void theTopCardShouldHaveAValueOfMyValueAndASuitOfMySuit() {
+    @And("the top card should have a value of {string} and a suit of {string}")
+    public void theTopCardShouldHaveAValueOfMyValueAndASuitOfMySuit(String myValue, String mySuit) {
+        assertEquals(mySuit, cardGamePage.getTopCardSuit());
+        assertEquals(myValue, cardGamePage.getTopCardValue());
     }
 
-
-
-   /* @Given("There are {int} other students in the game with me")
-    public void there_are_n_other_players_in_game(int noPlayers){
-        cardGamePage.setNumberOfPlayers(noPlayers);
-    }
-
-    @When("I press the start game button")
-    public void i_have_pressed_start_game_button(){
-        cardGamePage.clickStartGameButton();
-    }
-    @Then("I should see that the game has started")
-    public void i_should_see_that_the_game_has_started(){
-        assertTrue(cardGamePage.getGameStarted());
-    }
-
-    @Then("I should see my hand of 7 cards")
-    public void i_should_see_my_hand_of_7_cards(){
-        assertTrue(cardGamePage.getPlayerHand());
-    }*/
 
 
 

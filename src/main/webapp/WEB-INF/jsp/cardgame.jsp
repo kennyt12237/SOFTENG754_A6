@@ -25,7 +25,7 @@
             float:left;
         }
         div.deck{
-            height:200px;
+            height:300px;
             margin:10px;
             overflow:hidden;
         }
@@ -33,6 +33,7 @@
             overflow:hidden;
             margin:10px;
         }
+
     </style>
 </head>
 <body>
@@ -41,8 +42,9 @@
         <div class ="deck">
             <div class="Card">
                 <form method = "post">
-                    <input type="submit" id="drawCard" value="Draw Card"></input>
+                    <input type="submit" name="drawCard" id="drawCard" value="Draw Card"></input>
                 </form>
+
             </div>
             <div id="topCard">
                 <div class="Card">
@@ -59,8 +61,12 @@
                 int i=0;
             %>
                 <c:forEach items="${hand}" var="card">
-                    <div class ="Card" id <%=i%>>
-                        <button>Suit: ${card.wordSuit}, Value: ${card.wordValue}</button>
+                    <div class ="Card">
+                        Suit: ${card.wordSuit}, Value: ${card.wordValue}
+                        <form method="post">
+                            <input type="hidden" id="cardid" name="cardid" value=<%=i%>>
+                            <input type="submit" id="<%=i%>" name="placeCard" value="Place Card">
+                        </form>
                     </div>
                     <%i++;%>
                 </c:forEach>
@@ -68,6 +74,20 @@
     </div>
     <button id="start-game-button">Start Game</button>
     <button class="btn btn-default" id="helpbtn">?</button>
+
+    <h4>Testing: Add Card To Hand - To use, enter the card value (0-12) and card suit (0-3) into the respective boxes</h4>
+    <form method = "post">
+        Card Value: <input type="text" name="testCardValue" id = "testCardValue">
+        Card Suit: <input type="text" name="testCardSuit" id="testCardSuit">
+        <input type="submit" name="addTestCardsHand" id="addTestCardsHand" value="Add Test Cards to Hand">
+    </form>
+
+    <h4>Testing: Add Card To Top - To use, enter the card value (0-12) and card suit (0-3) into the respective boxes</h4>
+    <form method ="post">
+        Top Card Value: <input type="text" name="testTopCardValue" id ="testTopCardValue">
+        Top Card Suit: <input type="text" name="testTopCardSuit" id="testTopCardSuit">
+        <input type="submit" name="addTestCardsTop" id="addTestCardsTop" value="Add Test Cards to Top">
+    </form>
 </div>
 <!-- Modal code goes here-->
 <div class ="modal fade" tabindex="-1" role ="dialog" id="helpTextBox">

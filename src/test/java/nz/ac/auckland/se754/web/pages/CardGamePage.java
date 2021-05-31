@@ -44,6 +44,27 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="drawCard")
     private WebElement drawCard;
 
+    @FindBy(how=How.ID, using="0")
+    private WebElement testCard;
+
+    @FindBy(how=How.ID, using="testCardValue")
+    private WebElement testCardValue;
+
+    @FindBy(how=How.ID, using="testCardSuit")
+    private WebElement testCardSuit;
+
+    @FindBy(how=How.ID, using="addTestCardsHand")
+    private WebElement testCardButton;
+
+    @FindBy(how=How.ID, using="testTopCardValue")
+    private WebElement testTopCardValue;
+
+    @FindBy(how=How.ID, using="testTopCardSuit")
+    private WebElement testTopCardSuit;
+
+    @FindBy(how=How.ID, using="addTestCardsTop")
+    private WebElement testCardTopButton;
+
 
     public void clickStartGameButton(){
          this.startGameButton.click();
@@ -62,6 +83,25 @@ public class CardGamePage {
     }
 
     public void clickHelpExit(){this.helpExit.click();}
+
+    public void addTestCardToHand(String value, String suit){
+        value = valueToNum(value);
+        suit = suitToNum(suit);
+        this.testCardValue.sendKeys(value);
+        this.testCardSuit.sendKeys(suit);
+        this.testCardButton.click();
+
+    }
+    public void addTestCardToTopDeck(String value, String suit){
+        value = valueToNum(value);
+        suit = suitToNum(suit);
+        this.testTopCardValue.sendKeys(value);
+        this.testTopCardSuit.sendKeys(suit);
+        this.testCardTopButton.click();
+    }
+    public void clickTestCard(){
+        this.testCard.click();
+    }
 
     public String getRules(){
        return this.helpMessage.getText();
@@ -97,7 +137,6 @@ public class CardGamePage {
     }
 
 
-
     public int validHand(){
         String hand = this.hand.getText();
         int validCardCounter = 0;
@@ -112,4 +151,62 @@ public class CardGamePage {
         }
         return validCardCounter;
     }
+
+    public String valueToNum(String value){
+        if(value.equals("Ace")){
+            return "0";
+        }
+        if(value.equals("2")){
+            return "1";
+        }
+        if(value.equals("3")){
+            return "2";
+        }
+        if(value.equals("4")){
+            return "3";
+        }
+        if(value.equals("5")){
+            return "4";
+        }
+        if(value.equals("6")){
+            return "5";
+        }
+        if(value.equals("7")){
+            return "6";
+        }
+        if(value.equals("8")){
+            return "7";
+        }
+        if(value.equals("9")){
+            return "8";
+        }
+        if(value.equals("10")){
+            return "9";
+        }
+        if(value.equals("Jack")){
+            return "10";
+        }
+        if(value.equals("Queen")){
+            return "11";
+        }
+        if(value.equals("King")){
+            return "12";
+        }
+        return value;
+    }
+
+    public String suitToNum(String suit){
+        if(suit.equals("Diamonds")){
+            return "0";
+        }
+        if(suit.equals("Hearts")){
+            return "1";
+        }
+        if(suit.equals("Clubs")){
+            return "2";
+        }
+        return "3";
+    }
+
+
 }

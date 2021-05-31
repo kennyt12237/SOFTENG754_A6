@@ -19,6 +19,7 @@ public class CardGame {
         currentPlayer=0;
         players.get(currentPlayer).getStartingHand(deck);
     }
+
     public CardGame(List<User> newStudents){
         deck = new Deck(newStudents.size());
         for(int i =0; i<newStudents.size(); i++){
@@ -71,6 +72,12 @@ public class CardGame {
 
     public int getCurrentPlayer(){
         return this.currentPlayer;
+    }
+
+    public void deckRefresh(){
+        if(this.deck.getDeck().size()==0){
+            this.deck.refreshDeck(this.placedDeck);
+        }
     }
 
     public boolean playerHasWon(){
