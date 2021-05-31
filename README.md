@@ -23,6 +23,13 @@ Group Members
 - From there you should be able to use the app.
 
 ### The modules
+
+#### Authentication System - `http://localhost:8080/login`
+- Any registered users in the system can login using the login button
+with their credentials or they can log in with SSO.
+- Once they have logged in, they will be redirected to the welcome page.
+- From the welcome page, they can join a lecture that they are enrolled in. 
+
 #### Interactive Tool/Card Game - `http://localhost:8080/CardGame`
 - Currently just a single player, simplified version of the game 'last card'. Use the buttons on the screen
   to play, and click on the help icon to see the rules.
