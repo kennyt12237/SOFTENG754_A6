@@ -1,8 +1,20 @@
 package nz.ac.auckland.se754.web.service;
 
-import org.springframework.stereotype.Service;
+public class User {
+    public String userName;
 
+    public String getDesignation() {
+        return designation;
+    }
 
-public interface User {
-    String GetDesignation();
+    private String designation;
+
+    public User(String name) {
+        userName = name;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
 }
