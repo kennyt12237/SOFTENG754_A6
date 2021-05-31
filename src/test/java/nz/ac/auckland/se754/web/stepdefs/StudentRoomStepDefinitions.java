@@ -55,22 +55,21 @@ public class StudentRoomStepDefinitions {
         assertNotEquals(0,studentRoomPage.GetBreakoutRoomCount());
     }
 
-    @When("students {string} joins The breakout room")
-    public void students_joins_the_breakout_room(String string) {
+    @When("student {string} joins The breakout room")
+    public void student_joins_the_breakout_room(String string) {
         driver.get("http://localhost:8080/student-room?user=" + string);
         studentRoomPage.clickJoin();
     }
 
     @Given("{string} is in a breakout room")
     public void is_in_a_breakout_room(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.get("http://localhost:8080/student-room?user=" + string);
     }
 
     @When("the Finish button is pressed")
     public void the_finish_button_is_pressed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.navigate().refresh();
+        studentRoomPage.clickFinish();
     }
 
 }

@@ -51,6 +51,9 @@
         <p class="topic">
            ${breakoutRoom.topicName}
          </p>
+          <c:if test="${breakoutRoom.activityStatus}">
+                <a class="finishedbtn" href="mainroom-lecturer-screen?id=${breakoutRoom.id}" title="Link"> Finished:</a>
+          </c:if>
         <ul>
          <c:forEach items="${breakoutRoom.userSubGroup}" var="stud">
             <li class="mbkstudent">${stud.userName}</li>

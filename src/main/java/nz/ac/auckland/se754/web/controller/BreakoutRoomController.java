@@ -30,6 +30,13 @@ public class BreakoutRoomController {
         return "mainroom-lecturer-screen";
     }
 
+
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "id")
+    public String finishshowMainPage(ModelMap model) {
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+    }
+
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "enablebk")
     public String enableshowMainPage(ModelMap model) {
         service.maingroup.setBreakoutRoomsEnabled(true);
@@ -92,6 +99,16 @@ public class BreakoutRoomController {
             return "student-room";
         }
     }
+
+    @RequestMapping(value = "/student-room", method = RequestMethod.POST)
+    public String finishStudent(ModelMap model, @RequestParam String roomid, @RequestParam String usernameid) {
+        service.maingroup.findBreakoutRoom(roomid).NotifyActivityComplete();
+        model.put("username", usernameid);
+        model.put("idnum", roomid);
+        loadStudentPage(model);
+        return "student-room";
+    }
+
     public void LoadPage(ModelMap model) {
         if (service.maingroup.getBreakoutRoomsEnabled()) {
             model.put("lblEnabled", "Breakout Rooms Enabled");

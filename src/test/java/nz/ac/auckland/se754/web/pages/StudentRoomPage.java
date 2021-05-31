@@ -21,12 +21,19 @@ public class StudentRoomPage {
     @FindBy(how = How.CLASS_NAME, using = "joinbtn")
     private WebElement joinButton;
 
+    @FindBy(how = How.ID, using = "finishbtn")
+    private WebElement finishButton;
+
     public int GetBreakoutRoomCount() {
         return breakoutRooms.size();
     }
 
     public void clickJoin() {
         this.joinButton.click();
+    }
+
+    public void clickFinish() {
+        this.finishButton.click();
     }
 }
 

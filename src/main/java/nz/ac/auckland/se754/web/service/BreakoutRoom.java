@@ -10,7 +10,16 @@ public class BreakoutRoom {
     private String topicName;
     private Integer maxGroupSize = 10;
     private List<User> userSubGroup;
-    private Boolean ActivityStatus;
+
+    private Boolean activityStatus;
+
+    public Boolean getActivityStatus() {
+        return activityStatus;
+    }
+
+    public void setActivityStatus(Boolean activityStatus) {
+        this.activityStatus = activityStatus;
+    }
 
     public UUID getId() {
         return id;
@@ -25,7 +34,7 @@ public class BreakoutRoom {
         topicName = "---";
         id = UUID.randomUUID();
         userSubGroup = new ArrayList<User>();
-        ActivityStatus = false;
+        activityStatus = false;
     }
 
     //Create Breakout Room with a group of students
@@ -33,7 +42,7 @@ public class BreakoutRoom {
         topicName = "---";
         id = UUID.randomUUID();
         userSubGroup = group;
-        ActivityStatus = false;
+        activityStatus = false;
     }
 
     //Set Breakout Room Topic Name
@@ -79,11 +88,11 @@ public class BreakoutRoom {
     }
 
     public boolean GetStatus() {
-        return ActivityStatus;
+        return activityStatus;
     }
 
     public void NotifyActivityComplete() {
-        ActivityStatus = true;
+        activityStatus = true;
     }
 
 }

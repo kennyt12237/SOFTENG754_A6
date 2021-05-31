@@ -51,6 +51,9 @@ public class BreakoutRoomPage {
     @FindBy(how = How.ID, using = "reset")
     private WebElement resetBtn;
 
+    @FindBy(how = How.CLASS_NAME, using = "finishedbtn")
+    private List<WebElement> finishButtonList;
+
     public void clickAdd() {
         this.addButton.click();
     }
@@ -100,6 +103,11 @@ public class BreakoutRoomPage {
 
     public void clickReset(){
         this.resetBtn.click();
+    }
+
+    public int checkFinish()
+    {
+        return this.finishButtonList.size();
     }
 }
 

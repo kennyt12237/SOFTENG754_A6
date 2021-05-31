@@ -5,11 +5,10 @@ Feature:  Check In On Student Sub groups
     Given the Lecturer and students "cpat430" and "akha379" and "abc123"  and "sat230" and "has379" are in the mainroom
 
   Scenario Outline: Lecturer Should be able to check users in main room and sub groups
-    Given I visit page "/mainroom-lecturer-screen"
+    Given Lecturer visit page "/mainroom-lecturer-screen"
     And There is a breakout room
     When the Lecturer presses the Enable button
-    And students <user> joins The breakout room
-
+    And student <user> joins The breakout room
     Then I should be able to see <user> in the breakout room.
 
     Examples:
@@ -18,6 +17,7 @@ Feature:  Check In On Student Sub groups
       | "akha379" |
 
     Scenario: The lecturer should be notified when a sub-group has finished
-      Given "akha379" is in a breakout room
-      When  the Finish button is pressed
+      Given I visit page "/student-room" as "sat230"
+      When  student "sat230" joins The breakout room
+      And   the Finish button is pressed
       Then the lecturer should see Finished on the breakout room.
