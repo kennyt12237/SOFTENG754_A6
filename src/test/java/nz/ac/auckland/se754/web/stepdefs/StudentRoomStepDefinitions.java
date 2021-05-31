@@ -22,7 +22,11 @@ public class StudentRoomStepDefinitions {
 
     @Before("@BreakoutRoom")
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
+        }
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
