@@ -40,6 +40,19 @@ Feature: CardGame
       |"Ace"    |"Hearts"  |"Ace"  |"Hearts"|
 
 
+  Scenario Outline: Attempting to place an invalid card
+    Given I have a card with a value of <myValue> and a suit of <mySuit> in my hand
+    And the top card has a value of <value> and suit of <suit>
+    When I try to place the card
+    Then the card should still be in my hand
+    And the top card should have a value of <value> and a suit of <suit>
+    And I can see an error message
+    Examples:
+      |myValue|mySuit|value|suit|
+      |"Queen"|"Spades"  |"2"   |"Hearts"|
+      |"8"    |"Diamonds"|"Jack"|"Clubs" |
+      |"4"    |"Clubs"   |"King"|"Spades"|
+
 
 
 

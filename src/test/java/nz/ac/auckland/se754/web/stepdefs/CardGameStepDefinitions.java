@@ -128,6 +128,12 @@ public class CardGameStepDefinitions {
     }
 
 
+    @Then("the card should still be in my hand")
+    public void theCardShouldStillBeInMyHand() {
+        
+    }
 
-
+    @And("I can see an error message")
+    public void iCanSeeAnErrorMessage() {
+    }
 }
