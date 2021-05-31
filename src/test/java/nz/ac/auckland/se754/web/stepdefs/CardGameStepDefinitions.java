@@ -8,14 +8,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.pages.CardGamePage;
-import nz.ac.auckland.se754.web.service.CardGame.Card;
-import nz.ac.auckland.se754.web.service.LectureSystem;
-import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +19,8 @@ public class CardGameStepDefinitions {
     private WebDriver driver;
     private CardGamePage cardGamePage;
     private int handSize;
-    @Before
+
+    @Before("@CardGame")
     public void setup() {
         if (System.getProperty("os.name").startsWith("Windows")) {
             System.setProperty("webdriver.chrome.driver", "webdrivers/win/chromedriver.exe");
@@ -37,16 +33,16 @@ public class CardGameStepDefinitions {
         cardGamePage = new CardGamePage(driver);
     }
 
-    @AfterStep
+    @AfterStep("@CardGame")
     public void afterEachStep() {
         // to make the test at human speed
         try {
-            Thread.sleep(2000);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    @After
+    @After("@CardGame")
     public void tearDown() {
         driver.quit();
     }

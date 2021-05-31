@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class CardGame {
     public Deck deck;
-    private List<Player> players = new ArrayList<Player>();
+    private List<Player> players = new ArrayList<>();
     private PlacedDeck placedDeck;
     private Player gameWinner;
     private int currentPlayer;
@@ -27,13 +27,6 @@ public class CardGame {
         }
         placedDeck = new PlacedDeck(deck);
         currentPlayer = 0;
-
-        /*while(!playerHasWon()){
-
-
-        }*/
-
-
     }
     public boolean started(){
         return true;

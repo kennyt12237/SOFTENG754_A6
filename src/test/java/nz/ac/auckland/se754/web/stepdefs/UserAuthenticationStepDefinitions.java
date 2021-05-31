@@ -6,7 +6,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import nz.ac.auckland.se754.web.pages.SSOPage;
 import nz.ac.auckland.se754.web.service.LectureSystem;
 import nz.ac.auckland.se754.web.pages.UserAuthenticationPage;
 import org.openqa.selenium.WebDriver;
@@ -84,17 +83,17 @@ public class UserAuthenticationStepDefinitions {
 
     @Then("I should see the welcome page")
     public void i_should_see_the_welcome_page() {
-        assertEquals(userAuthenticationPage.getMessage(), "Welcome " + username + "!");
+        assertEquals("Welcome " + username + "!", userAuthenticationPage.getMessage());
     }
 
     /* Specific to scenario Unsuccessfully logging into the lecture system. */
     @Then("I should not see the welcome page")
     public void i_should_not_see_the_welcome_page() {
-        assertEquals(driver.getCurrentUrl(), "http://localhost:8080/login");
+        assertEquals("http://localhost:8080/login", driver.getCurrentUrl());
     }
 
     @Then("I should see an error message")
     public void i_should_see_an_error_message() {
-        assertEquals(userAuthenticationPage.getErrorMessage(), "Invalid Credentials");
+        assertEquals("Invalid Credentials", userAuthenticationPage.getErrorMessage());
     }
 }

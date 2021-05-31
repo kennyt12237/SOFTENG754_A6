@@ -69,7 +69,7 @@ public class AuthenticationSystemStepDefinitions {
 
     @Then("I should be redirected to the lecture")
     public void i_should_be_redirected_to_the_lecture() {
-        assertEquals(authenticationSystemPage.getLectureWelcomeText(), "Welcome to SOFTENG 754");
+        assertEquals("Welcome to SOFTENG 754", authenticationSystemPage.getLectureWelcomeText());
     }
 
     @Given("My authentication status is {string}")
@@ -92,7 +92,7 @@ public class AuthenticationSystemStepDefinitions {
 
     @Then("I should not be redirected to the lecture")
     public void i_should_not_be_redirected_to_the_lecture() {
-        assertEquals(authenticationSystemPage.getLectureName(), "SOFTENG 754");
-        assertEquals(authenticationSystemPage.getErrorMessage(), "Invalid Credentials");
+        assertEquals("SOFTENG 754", authenticationSystemPage.getLectureName());
+        assertEquals("Invalid Credentials", authenticationSystemPage.getErrorMessage());
     }
 }

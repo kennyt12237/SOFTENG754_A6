@@ -59,13 +59,13 @@ public class SSOStepDefinitions {
 
     @Then("I should see the SSO login page")
     public void i_should_see_the_sso_login_page() {
-        assertEquals(ssoPage.getMessage(), "Welcome SSO User!");
-        assertEquals(ssoPage.getWelcomeText(), "Thank you for signing in through SSO");
+        assertEquals("Welcome SSO User!", ssoPage.getMessage());
+        assertEquals("Thank you for signing in through SSO", ssoPage.getWelcomeText());
     }
 
     @Then("I can redirect to the welcome page")
     public void i_can_redirect_to_the_welcome_page() {
         ssoPage.clickRedirectButton();
-        assertEquals(ssoPage.getMessage(), "Welcome SSO User!");
+        assertEquals("Welcome SSO User!", ssoPage.getMessage());
     }
 }
