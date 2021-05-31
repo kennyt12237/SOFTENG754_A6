@@ -54,6 +54,9 @@ public class BreakoutRoomPage {
     @FindBy(how = How.CLASS_NAME, using = "finishedbtn")
     private List<WebElement> finishButtonList;
 
+    @FindBy(how = How.CLASS_NAME, using = "invitebtn")
+    private List<WebElement> inviteButtonList;
+
     public void clickAdd() {
         this.addButton.click();
     }
@@ -108,6 +111,10 @@ public class BreakoutRoomPage {
     public int checkFinish()
     {
         return this.finishButtonList.size();
+    }
+
+    public int checkInvite() {
+        return this.inviteButtonList.size();
     }
 }
 

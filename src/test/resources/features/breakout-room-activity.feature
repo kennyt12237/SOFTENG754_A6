@@ -12,15 +12,15 @@ Feature:  Check In On Student Sub groups
     Then I should be able to see <user> in the breakout room.
 
     Examples:
-      | user   |
+      | user      |
       | "cpat430" |
       | "akha379" |
 
-    Scenario: The lecturer should be notified when a sub-group has finished
-      Given I visit page "/student-room" as "sat230"
-      When  student "sat230" joins The breakout room
-      And   the Finish button is pressed
-      Then the lecturer should see Finished on the breakout room.
+  Scenario: The lecturer should be notified when a sub-group has finished
+    Given I visit page "/student-room" as "sat230"
+    When  student "sat230" joins The breakout room
+    And   the Finish button is pressed
+    Then the lecturer should see Finished on the breakout room.
 
   Scenario: The students should be able to invite the lecturer to a sub-group
     Given I visit page "/student-room" as "has379"

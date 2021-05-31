@@ -24,6 +24,9 @@ public class StudentRoomPage {
     @FindBy(how = How.ID, using = "finishbtn")
     private WebElement finishButton;
 
+    @FindBy(how = How.ID, using = "callbtn")
+    private WebElement inviteButton;
+
     public int GetBreakoutRoomCount() {
         return breakoutRooms.size();
     }
@@ -34,6 +37,10 @@ public class StudentRoomPage {
 
     public void clickFinish() {
         this.finishButton.click();
+    }
+
+    public void clickInvite() {
+        this.inviteButton.click();
     }
 }
 

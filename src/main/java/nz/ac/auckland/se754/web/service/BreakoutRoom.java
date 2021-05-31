@@ -10,15 +10,28 @@ public class BreakoutRoom {
     private String topicName;
     private Integer maxGroupSize = 10;
     private List<User> userSubGroup;
-
     private Boolean activityStatus;
+    private Boolean inviteStatus;
 
-    public Boolean getActivityStatus() {
-        return activityStatus;
+
+    public void setUserSubGroup(List<User> userSubGroup) {
+        this.userSubGroup = userSubGroup;
     }
 
     public void setActivityStatus(Boolean activityStatus) {
         this.activityStatus = activityStatus;
+    }
+
+    public Boolean getInviteStatus() {
+        return inviteStatus;
+    }
+
+    public void setInviteStatus(Boolean inviteStatus) {
+        this.inviteStatus = inviteStatus;
+    }
+
+    public Boolean getActivityStatus() {
+        return activityStatus;
     }
 
     public UUID getId() {

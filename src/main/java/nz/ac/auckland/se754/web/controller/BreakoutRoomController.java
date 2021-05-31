@@ -32,9 +32,21 @@ public class BreakoutRoomController {
 
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "id")
-    public String finishshowMainPage(ModelMap model) {
+    public String finishshowMainPage(ModelMap model,@RequestParam String id) {
+        service.maingroup.findBreakoutRoom(id).setInviteStatus(false);
+        service.maingroup.findBreakoutRoom(id).setActivityStatus(false);
+        service.maingroup.sendBackToBreakoutRoom( service.maingroup.findBreakoutRoom(id));
         LoadPage(model);
         return "mainroom-lecturer-screen";
+
+    }
+
+    @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "joinid")
+    public String joinshowMainPage(ModelMap model,@RequestParam String joinid) {
+        service.maingroup.joinBreakoutRoom(service.maingroup.findUser("Lecturer"),service.maingroup.findBreakoutRoom(joinid));
+        LoadPage(model);
+        return "mainroom-lecturer-screen";
+
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "enablebk")
@@ -103,6 +115,16 @@ public class BreakoutRoomController {
     @RequestMapping(value = "/student-room", method = RequestMethod.POST)
     public String finishStudent(ModelMap model, @RequestParam String roomid, @RequestParam String usernameid) {
         service.maingroup.findBreakoutRoom(roomid).NotifyActivityComplete();
+        model.put("username", usernameid);
+        model.put("idnum", roomid);
+        loadStudentPage(model);
+        return "student-room";
+    }
+
+
+    @RequestMapping(value = "/student-room", method = RequestMethod.POST, params = "callbtn")
+    public String callStudent(ModelMap model, @RequestParam String roomid, @RequestParam String usernameid) {
+        service.maingroup.findBreakoutRoom(roomid).setInviteStatus(true);
         model.put("username", usernameid);
         model.put("idnum", roomid);
         loadStudentPage(model);

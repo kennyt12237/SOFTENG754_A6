@@ -101,7 +101,11 @@ public class UserGroup {
         }
     }
 
-    public void Notify(BreakoutRoom breakoutRoom) {
-        System.out.print("Request to Join received from " + breakoutRoom.getTopicName());
+    public void sendBackToBreakoutRoom(BreakoutRoom room) {
+        for( User user : room.getUserSubGroup())
+        {
+            userList.add(user);
+        }
+        room.setUserSubGroup(new ArrayList<>());
     }
 }

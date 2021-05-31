@@ -62,6 +62,7 @@
                                 <input type="hidden" id="usernameid" name="usernameid" value="${username}">
                                         <input type="hidden" id="roomid" name="roomid" value="${breakoutRoom.id}">
                                         <input type="submit" id="finishbtn" name="finishbtn" value="Finish" />
+                                        <input type="submit" id="callbtn" name="callbtn" value="Invite" />
                                     </form>
                             </p>
                             <p class="topic">

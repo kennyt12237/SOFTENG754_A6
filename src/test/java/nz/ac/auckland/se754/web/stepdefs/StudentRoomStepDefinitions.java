@@ -74,8 +74,8 @@ public class StudentRoomStepDefinitions {
 
     @When("the Invite button is pressed")
     public void the_invite_button_is_pressed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.navigate().refresh();
+        studentRoomPage.clickInvite();
     }
 
 

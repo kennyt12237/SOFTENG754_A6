@@ -149,7 +149,7 @@ public class BreakoutRoomStepDefinitions {
 
     @Then("the lecturer should see Invite on the breakout room.")
     public void the_lecturer_should_see_invite_on_the_breakout_room() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.get("http://localhost:8080/mainroom-lecturer-screen");
+        assertEquals(1,breakoutRoomPage.checkInvite());
     }
 }
