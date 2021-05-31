@@ -21,3 +21,9 @@ Feature:  Check In On Student Sub groups
       When  student "sat230" joins The breakout room
       And   the Finish button is pressed
       Then the lecturer should see Finished on the breakout room.
+
+  Scenario: The students should be able to invite the lecturer to a sub-group
+    Given I visit page "/student-room" as "has379"
+    When  student "has379" joins The breakout room
+    And   the Invite button is pressed
+    Then the lecturer should see Invite on the breakout room.
