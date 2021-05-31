@@ -33,6 +33,19 @@ Group Members
   13 being King). 
 - At this stage, the start game button is not used for anything.
 
+#### Lecturer Main Window - `http://localhost:8080/mainroom-lecturer-screen`
+- This Screen Shows the controls available to The lecturer.
+- The Lecturer Can Add Breakout rooms, Import Breakout Rooms, Enable Breakout Rooms, Add Topic to a Breakout room on this page. 
+- If Breakout rooms are open, the lecturer is also able to see who is in the Breakout rooms and the main room
+- The lecturer can also be notified of finished activities and invite requests to join a Breakout room 
+
+#### Student Window - `http://localhost:8080/student-room?user=sat230`
+- This Screen Shows the student's perspective of the main room and breakout room.
+- The students are shown available breakout rooms once the lecturer Enables them.
+- Breakout room be joined by pressing the Join button.
+- Once In a Breakout Room, students have the option to notify the lecturer the activity is completed.
+- Once In a Breakout Room, students can also invite the lecturer to join the Breakout Room. 
+
 #### Question System: For Lecturer - `http://localhost:8080/lecturerScreen`
 - A System for the lecturer to receive questions from students
 - Currently, the lecturer has to press 'Receive Question' button to receive a question. Once pressed, the lecturer is alerted 
