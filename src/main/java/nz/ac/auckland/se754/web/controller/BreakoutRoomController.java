@@ -19,32 +19,32 @@ public class BreakoutRoomController {
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET)
     public String showMainPage(ModelMap model) {
-        LoadPage(model);
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.POST)
     public String addBreakoutRoom(ModelMap model) {
-        service.maingroup.CreateBreakoutRooms(1);
-        LoadPage(model);
+        service.maingroup.createBreakoutRooms(1);
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "id")
-    public String finishshowMainPage(ModelMap model,@RequestParam String id) {
+    public String finishshowMainPage(ModelMap model, @RequestParam String id) {
         service.maingroup.findBreakoutRoom(id).setInviteStatus(false);
         service.maingroup.findBreakoutRoom(id).setActivityStatus(false);
-        service.maingroup.sendBackToBreakoutRoom( service.maingroup.findBreakoutRoom(id));
-        LoadPage(model);
+        service.maingroup.sendBackToBreakoutRoom(service.maingroup.findBreakoutRoom(id));
+        loadPage(model);
         return "mainroom-lecturer-screen";
 
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "joinid")
-    public String joinshowMainPage(ModelMap model,@RequestParam String joinid) {
-        service.maingroup.joinBreakoutRoom(service.maingroup.findUser("Lecturer"),service.maingroup.findBreakoutRoom(joinid));
-        LoadPage(model);
+    public String joinshowMainPage(ModelMap model, @RequestParam String joinid) {
+        service.maingroup.joinBreakoutRoom(service.maingroup.findUser("Lecturer"), service.maingroup.findBreakoutRoom(joinid));
+        loadPage(model);
         return "mainroom-lecturer-screen";
 
     }
@@ -52,7 +52,7 @@ public class BreakoutRoomController {
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "enablebk")
     public String enableshowMainPage(ModelMap model) {
         service.maingroup.setBreakoutRoomsEnabled(true);
-        LoadPage(model);
+        loadPage(model);
         return "mainroom-lecturer-screen";
 
     }
@@ -60,14 +60,14 @@ public class BreakoutRoomController {
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "disablebk")
     public String disableshowMainPage(ModelMap model) {
         service.maingroup.setBreakoutRoomsEnabled(false);
-        LoadPage(model);
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
     @RequestMapping(value = "/addtopic", method = RequestMethod.GET)
     public String setTopic(ModelMap model, @RequestParam String id) {
         if (id == "") {
-            LoadPage(model);
+            loadPage(model);
             return "mainroom-lecturer-screen";
         } else {
             model.put("idnum", id);
@@ -78,22 +78,22 @@ public class BreakoutRoomController {
 
     @RequestMapping(value = "/addtopic", method = RequestMethod.POST)
     public String addTopic(ModelMap model, @RequestParam String roomid, @RequestParam(required = false) String topicname) {
-        service.maingroup.SetTopicNameForGivenRoom(roomid, topicname);
-        LoadPage(model);
+        service.maingroup.setTopicNameForGivenRoom(roomid, topicname);
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "importcanvas")
     public String canvasImportGroups(ModelMap model) {
-        service.maingroup.CreateBreakoutRooms(service.maingroup.importUserGroupsFromCanvas(new Canvas()));
-        LoadPage(model);
+        service.maingroup.createBreakoutRooms(service.maingroup.importUserGroupsFromCanvas(new Canvas()));
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
     @RequestMapping(value = "/mainroom-lecturer-screen", method = RequestMethod.GET, params = "reset")
     public String ResetGroups(ModelMap model) {
         service = new MainRoom();
-        LoadPage(model);
+        loadPage(model);
         return "mainroom-lecturer-screen";
     }
 
@@ -131,14 +131,14 @@ public class BreakoutRoomController {
         return "student-room";
     }
 
-    public void LoadPage(ModelMap model) {
+    public void loadPage(ModelMap model) {
         if (service.maingroup.getBreakoutRoomsEnabled()) {
             model.put("lblEnabled", "Breakout Rooms Enabled");
         } else {
             model.put("lblEnabled", "Breakout Rooms Disabled");
         }
-        model.put("students", service.maingroup.GetStudents());
-        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
+        model.put("students", service.maingroup.getStudents());
+        model.put("breakoutRooms", service.maingroup.getBreakoutRooms());
     }
 
     public void loadStudentPage(ModelMap model) {
@@ -147,7 +147,7 @@ public class BreakoutRoomController {
         } else {
             model.put("lblEnabled", "false");
         }
-        model.put("students", service.maingroup.GetStudents());
-        model.put("breakoutRooms", service.maingroup.GetBreakoutRooms());
+        model.put("students", service.maingroup.getStudents());
+        model.put("breakoutRooms", service.maingroup.getBreakoutRooms());
     }
 }

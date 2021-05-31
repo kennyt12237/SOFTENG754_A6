@@ -21,30 +21,30 @@ public class UserGroup {
         return cv.getUserList();
     }
 
-    public boolean CreateBreakoutRooms(List<List<User>> UserGroups) {
+    public boolean createBreakoutRooms(List<List<User>> UserGroups) {
         userList.clear();
         breakoutRooms.clear();
-        for (List<User> subGroup:UserGroups) {
+        for (List<User> subGroup : UserGroups) {
             breakoutRooms.add(new BreakoutRoom(subGroup));
         }
         return true;
     }
 
-    public Boolean CreateBreakoutRooms(Integer numberOfRooms) {
+    public Boolean createBreakoutRooms(Integer numberOfRooms) {
         for (int i = 0; i < numberOfRooms; i++) {
             breakoutRooms.add(new BreakoutRoom());
         }
         return true;
     }
 
-    public void SetTopicNameForGivenRoom(String id, String topic) {
+    public void setTopicNameForGivenRoom(String id, String topic) {
         for (BreakoutRoom br : breakoutRooms) {
             if (br.getId().equals(UUID.fromString(id))) {
-                br.SetTopicName(topic);
+                br.setTopicName(topic);
             }
-
         }
     }
+
     public User findUser(String userString) {
         User usr = userList.stream()
                 .filter(user -> userString.equals(user.getUserName()))
@@ -61,6 +61,7 @@ public class UserGroup {
         }
         return null;
     }
+
     public Boolean getBreakoutRoomsEnabled() {
         return isBreakoutRoomsEnabled;
     }
@@ -69,31 +70,31 @@ public class UserGroup {
         isBreakoutRoomsEnabled = breakoutRoomsEnabled;
     }
 
-    public List<BreakoutRoom> GetBreakoutRooms() {
+    public List<BreakoutRoom> getBreakoutRooms() {
         return this.breakoutRooms;
     }
 
-    public void SetGroups(List<List<User>> groups) {
+    public void setGroups(List<List<User>> groups) {
         preDefinedGroups = groups;
     }
 
-    public List<List<User>> ImportUserGroups() {
+    public List<List<User>> importUserGroups() {
         return preDefinedGroups;
     }
 
-    public void SetGroup(List<User> mainGroup) {
+    public void setGroup(List<User> mainGroup) {
         userList = mainGroup;
     }
 
-    public List<User> GetStudents() {
+    public List<User> getStudents() {
         return userList;
     }
 
     public void joinBreakoutRoom(User user, BreakoutRoom room) {
-        if(room.findUser(user)) {
+        if (room.findUser(user)) {
 
         } else {
-            if(userList.contains(user)) {
+            if (userList.contains(user)) {
                 if (room.AddNewUser(user)) {
                     userList.remove(user);
                 }
@@ -102,8 +103,7 @@ public class UserGroup {
     }
 
     public void sendBackToBreakoutRoom(BreakoutRoom room) {
-        for( User user : room.getUserSubGroup())
-        {
+        for (User user : room.getUserSubGroup()) {
             userList.add(user);
         }
         room.setUserSubGroup(new ArrayList<>());

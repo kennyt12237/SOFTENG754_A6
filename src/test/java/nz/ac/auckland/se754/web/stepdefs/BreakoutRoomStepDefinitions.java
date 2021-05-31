@@ -8,10 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import nz.ac.auckland.se754.web.pages.BreakoutRoomPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +20,7 @@ public class BreakoutRoomStepDefinitions {
     private WebDriver driver;
     private BreakoutRoomPage breakoutRoomPage;
 
-    @Before
+    @Before("@BreakoutRoom")
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
         driver = new ChromeDriver();
@@ -32,7 +29,7 @@ public class BreakoutRoomStepDefinitions {
         breakoutRoomPage = new BreakoutRoomPage(driver);
     }
 
-    @AfterStep
+    @AfterStep("@BreakoutRoom")
     public void afterEachStep() {
         // to make the test at human speed
         try {
@@ -42,7 +39,7 @@ public class BreakoutRoomStepDefinitions {
         }
     }
 
-    @After
+    @After("@BreakoutRoom")
     public void tearDown() {
         driver.quit();
     }
@@ -67,7 +64,7 @@ public class BreakoutRoomStepDefinitions {
 
     @Then("I should see {int} breakout rooms created")
     public void i_should_see_breakout_rooms_created(Integer int1) {
-        assertEquals(int1, breakoutRoomPage.GetBreakoutRoomCount());
+        assertEquals(int1, breakoutRoomPage.getBreakoutRoomCount());
     }
 
     @When("I press the Enable button")
@@ -87,7 +84,7 @@ public class BreakoutRoomStepDefinitions {
 
     @Given("There is a breakout room")
     public void there_is_a_breakout_room() {
-        if (breakoutRoomPage.GetBreakoutRoomCount() == 0) {
+        if (breakoutRoomPage.getBreakoutRoomCount() == 0) {
             breakoutRoomPage.clickAdd();
         }
     }

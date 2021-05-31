@@ -1,4 +1,4 @@
-@breakout-room-activity
+@BreakoutRoom
 Feature:  Check In On Student Sub groups
 
   Background: I have a couple of students in the main room and the Lecturer

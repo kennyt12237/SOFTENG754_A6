@@ -59,7 +59,7 @@ public class BreakoutRoom {
     }
 
     //Set Breakout Room Topic Name
-    public void SetTopicName(String topic) {
+    public void setTopicName(String topic) {
         this.topicName = topic;
     }
 
@@ -90,18 +90,9 @@ public class BreakoutRoom {
         }
     }
 
-    //Get  Number of participants in a breakout room
-    public Integer GetNumberOfParticipants() {
-        return this.userSubGroup.size();
-    }
-
     //Set maximum number of participants in a Break out room
     public void SetMaxParticipants(Integer max) {
         maxGroupSize = max;
-    }
-
-    public boolean GetStatus() {
-        return activityStatus;
     }
 
     public void NotifyActivityComplete() {

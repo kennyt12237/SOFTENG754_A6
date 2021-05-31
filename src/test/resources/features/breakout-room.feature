@@ -1,4 +1,4 @@
-@breakout-room
+@BreakoutRoom
 Feature:  Split students into smaller groups
 
   Background: I have a couple of students in the main room

@@ -9,7 +9,7 @@ public class User {
 
     private String designation;
 
-    public User(String name){
+    public User(String name) {
         userName = name;
     }
 

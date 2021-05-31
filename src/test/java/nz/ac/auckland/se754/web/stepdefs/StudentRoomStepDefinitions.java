@@ -20,7 +20,7 @@ public class StudentRoomStepDefinitions {
     private WebDriver driver;
     private StudentRoomPage studentRoomPage;
 
-    @Before
+    @Before("@BreakoutRoom")
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/macos/chromedriver");
         driver = new ChromeDriver();
@@ -29,7 +29,7 @@ public class StudentRoomStepDefinitions {
         studentRoomPage = new StudentRoomPage(driver);
     }
 
-    @AfterStep
+    @AfterStep("@BreakoutRoom")
     public void afterEachStep() {
         // to make the test at human speed
         try {
@@ -39,20 +39,20 @@ public class StudentRoomStepDefinitions {
         }
     }
 
-    @After
+    @After("@BreakoutRoom")
     public void tearDown() {
         driver.quit();
     }
 
     @Given("I visit page {string} as {string}")
     public void i_visit_page_as(String link, String userName) {
-        driver.get("http://localhost:8080" + link +"?user=" + userName);
+        driver.get("http://localhost:8080" + link + "?user=" + userName);
     }
 
     @Then("I should see breakout rooms open")
     public void i_should_see_breakout_rooms_open() {
         driver.navigate().refresh();
-        assertNotEquals(0,studentRoomPage.GetBreakoutRoomCount());
+        assertNotEquals(0, studentRoomPage.getBreakoutRoomCount());
     }
 
     @When("student {string} joins The breakout room")

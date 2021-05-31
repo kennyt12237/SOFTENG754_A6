@@ -69,7 +69,7 @@ public class BreakoutRoomPage {
         this.disableButton.click();
     }
 
-    public int GetBreakoutRoomCount() {
+    public int getBreakoutRoomCount() {
         return breakoutRooms.size();
     }
 

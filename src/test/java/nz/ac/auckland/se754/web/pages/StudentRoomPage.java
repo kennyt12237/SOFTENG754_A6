@@ -27,7 +27,7 @@ public class StudentRoomPage {
     @FindBy(how = How.ID, using = "callbtn")
     private WebElement inviteButton;
 
-    public int GetBreakoutRoomCount() {
+    public int getBreakoutRoomCount() {
         return breakoutRooms.size();
     }
 
