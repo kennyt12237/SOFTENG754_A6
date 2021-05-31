@@ -65,24 +65,23 @@ public class CardGamePage {
     @FindBy(how=How.ID, using="addTestCardsTop")
     private WebElement testCardTopButton;
 
+    @FindBy(how=How.ID, using="errorMessage")
+    private WebElement errorMessage;
+
 
     public void clickStartGameButton(){
          this.startGameButton.click();
     }
 
-    public boolean getGameStarted(){
-        return true;
-    }
 
-    public boolean getPlayerHand(){
-        return true;
-    }
 
     public void clickHelpIcon(){
         this.helpButton.click();
     }
 
-    public void clickHelpExit(){this.helpExit.click();}
+    public String getErrorMessage(){
+        return this.errorMessage.getText();
+    }
 
     public void addTestCardToHand(String value, String suit){
         value = valueToNum(value);

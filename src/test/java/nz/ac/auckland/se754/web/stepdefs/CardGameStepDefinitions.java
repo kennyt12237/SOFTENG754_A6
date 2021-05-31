@@ -117,7 +117,7 @@ public class CardGameStepDefinitions {
 
     @Then("the card should no longer be in my hand")
     public void theCardShouldNoLongerBeInMyHand() {
-        handSize = cardGamePage.validHand();
+        handSize--;
         assertEquals(handSize, cardGamePage.validHand());
     }
 
@@ -130,10 +130,11 @@ public class CardGameStepDefinitions {
 
     @Then("the card should still be in my hand")
     public void theCardShouldStillBeInMyHand() {
-        
+        assertEquals(handSize, cardGamePage.validHand());
     }
 
     @And("I can see an error message")
     public void iCanSeeAnErrorMessage() {
+        assertEquals("Invalid card.", cardGamePage.getErrorMessage());
     }
 }

@@ -57,12 +57,15 @@ public class CardGameController {
 
     @RequestMapping(value="/CardGame", method=RequestMethod.POST)
     public String placeCardFromHand(ModelMap model, @RequestParam String cardid){
-
+        boolean validCardPlaced =false;
         int cardLocation = Integer.parseInt(cardid);
-
-        service.getPlayers().get(service.getCurrentPlayer()).playCard(service.getPlayers().get(service.getCurrentPlayer()).getHand().get(cardLocation), service.getPlacedDeck());
-
-
+        validCardPlaced=service.getPlayers().get(service.getCurrentPlayer()).playCard(service.getPlayers().get(service.getCurrentPlayer()).getHand().get(cardLocation), service.getPlacedDeck());
+        if(!validCardPlaced){
+            model.put("invalidMove", "Invalid card.");
+        }
+        else{
+            model.put("invalidMove", "");
+        }
         loadPage(model);
         return "cardgame";
     }

@@ -33,6 +33,9 @@
             overflow:hidden;
             margin:10px;
         }
+        h3{
+            color:#FF6347;
+        }
 
     </style>
 </head>
@@ -55,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <h3 id="errorMessage">${invalidMove}</h3>
         Player Hand:
         <div class="playerHand" id ="playerHand">
             <%
