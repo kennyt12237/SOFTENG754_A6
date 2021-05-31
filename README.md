@@ -33,6 +33,20 @@ Group Members
   13 being King). 
 - At this stage, the start game button is not used for anything.
 
+#### Question System - For Lecturer - `http://localhost:8080/lecturerScreen`
+- A System for the lecturer to receive questions from students
+- Currently, the lecturer has to press 'Receive Question' button to receive a question. Once pressed, the lecturer is alerted 
+  on screen that they have received a question. 
+- The lecturer then can view the question and can perform various actions. Actions include marking as read, flagging, deleting, 
+  and storing the question in the form of a button. The lecturer will then be alerted for actions made, 
+- When question is stored, the lecturer can view the questions by pressing the 'View Database' button. 
+
+#### Question System - For Students - `http://localhost:8080/lecture`
+- A System for the student to ask questions in a lecture
+- Student can type questions into the text input and can mark question as urgent, then press 'Ask Question' to send an anonymous
+  question on screen. 
+- Once sent to the lecture screen, the question will be displayed as anonymous and student can upvote.
+
 ### The tests
 
 - Run `./gradlew cucumber' in the terminal
