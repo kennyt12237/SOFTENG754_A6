@@ -144,12 +144,22 @@ public class BreakoutRoomStepDefinitions {
     @Then("the lecturer should see Finished on the breakout room.")
     public void the_lecturer_should_see_finished_on_the_breakout_room() {
         driver.get("http://localhost:8080/mainroom-lecturer-screen");
-        assertEquals(1,breakoutRoomPage.checkFinish());
+        assertEquals(1, breakoutRoomPage.checkFinish());
     }
 
     @Then("the lecturer should see Invite on the breakout room.")
     public void the_lecturer_should_see_invite_on_the_breakout_room() {
         driver.get("http://localhost:8080/mainroom-lecturer-screen");
-        assertEquals(1,breakoutRoomPage.checkInvite());
+        assertEquals(1, breakoutRoomPage.checkInvite());
+    }
+
+    @When("the lecturer presses the invite link")
+    public void the_lecturer_presses_the_invite_link() {
+        breakoutRoomPage.clickInvite();
+    }
+
+    @Then("the lecturer should join the corresponding breakout room.")
+    public void the_lecturer_should_join_the_corresponding_breakout_room() {
+        assertTrue(breakoutRoomPage.getUsers().contains("Lecturer"));
     }
 }

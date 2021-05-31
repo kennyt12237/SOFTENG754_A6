@@ -93,28 +93,32 @@ public class BreakoutRoomPage {
         this.addTopicBtn.click();
     }
 
-    public void clickImport() { this.importBtn.click(); }
+    public void clickImport() {
+        this.importBtn.click();
+    }
 
     public List<String> getUsers() {
         ArrayList<String> usr = new ArrayList<>();
-        for(WebElement u :users )
-        {
-          usr.add(u.getText());
+        for (WebElement u : users) {
+            usr.add(u.getText());
         }
         return usr;
     }
 
-    public void clickReset(){
+    public void clickReset() {
         this.resetBtn.click();
     }
 
-    public int checkFinish()
-    {
+    public int checkFinish() {
         return this.finishButtonList.size();
     }
 
     public int checkInvite() {
         return this.inviteButtonList.size();
+    }
+
+    public void clickInvite() {
+        this.inviteButtonList.get(0).click();
     }
 }
 
